@@ -1,0 +1,190 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site, highlights } from "../data/site";
+---
+
+<Layout>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>{site.name}</h1>
+        <p class="hero-title">{site.title}</p>
+        <p class="hero-tagline">{site.tagline}</p>
+        <div class="hero-actions">
+          <a href="/about" class="btn btn-primary">About Me</a>
+          <a href="/experience" class="btn btn-secondary">Experience</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src={site.profileImage} alt={site.name} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-title">Key Numbers</p>
+      <div class="highlights">
+        {highlights.map((item) => (
+          <div class="highlight-card">
+            <span class="highlight-value">{item.value}</span>
+            <span class="highlight-label">{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-title">Currently</p>
+      <div class="current-card">
+        <p class="current-role">Co-founder / Product Lead — Venus (AI Companion Robot)</p>
+        <p class="current-desc">
+          Co-founding an AI companion robot venture, leading product definition, pricing,
+          and go-to-market. Previously advised on Hong Kong's first government AI agent
+          project and SE Asia market expansion — applying 20 years of supply chain and
+          operations expertise to AI-driven products.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding: 80px 0 48px;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .hero-title {
+    font-size: 18px;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .hero-tagline {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    max-width: 480px;
+    margin-bottom: 28px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    color: white;
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .hero-photo img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .highlight-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .highlight-value {
+    display: block;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+
+  .highlight-label {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+
+  .current-card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 28px;
+  }
+
+  .current-role {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .current-desc {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+    .highlights {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+</INDEXPAGE>
+ echo "index.astro created"

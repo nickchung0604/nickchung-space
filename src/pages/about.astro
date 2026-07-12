@@ -1,0 +1,330 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { timeline, skills, education, certifications, awards } from "../data/site";
+---
+
+<Layout title="About">
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">About Me</h1>
+      <p class="page-subtitle">
+        20 years in global supply chains. Now bringing that operational rigor to AI.
+      </p>
+
+      <div class="intro-block">
+        <p>
+          I'm a supply chain and procurement professional with 20 years of experience across
+          Dell, Delta Electronics, Electrolux, SK Group, and McKinsey. I've managed over $220M
+          in annual spend, driven nine-figure cost reductions, and built and led teams across
+          mainland China, Taiwan, Thailand, and Korea.
+        </p>
+        <p>
+          In recent years I've moved into the AI space — advising on Hong Kong's first
+          government-facing AI agent project, founding an AI/MR startup (1st place, Shanghai
+          startup competition), and now co-founding an AI companion robot venture. This
+          combination of deep supply chain knowledge and hands-on AI product experience lets
+          me operate where technology meets operations.
+        </p>
+        <p>
+          I work best at that intersection: the physical world of sourcing, manufacturing, and
+          logistics — and the digital world of AI, data, and automation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-title">Career Timeline</p>
+      <div class="timeline">
+        {timeline.map((item) => (
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <span class="timeline-period">{item.period}</span>
+              <h3 class="timeline-role">{item.role}</h3>
+              <p class="timeline-company">{item.company}</p>
+              <p class="timeline-desc">{item.description}</p>
+              <div class="timeline-tags">
+                {item.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-title">Capabilities</p>
+      <div class="skills-grid">
+        {skills.map((group) => (
+          <div class="skill-group">
+            <h3 class="skill-category">{group.category}</h3>
+            <ul class="skill-list">
+              {group.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-title">Awards & Recognition</p>
+      <div class="award-list">
+        {awards.map((item) => (
+          <div class="award-item">
+            <div class="award-year">{item.year}</div>
+            <div class="award-body">
+              <p class="award-title">{item.title}</p>
+              <p class="award-org">{item.org}{item.note ? ` — ${item.note}` : ""}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-title">Education</p>
+      <div class="edu-list">
+        {education.map((item) => (
+          <div class="edu-item">
+            <div>
+              <p class="edu-degree">{item.degree}</p>
+              <p class="edu-school">{item.school}</p>
+            </div>
+            <span class="edu-period">{item.period}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-title">Certifications</p>
+      <ul class="cert-list">
+        {certifications.map((cert) => (
+          <li>{cert}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .intro-block {
+    max-width: 720px;
+  }
+
+  .intro-block p {
+    margin-bottom: 16px;
+    color: var(--color-text-secondary);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background-color: var(--color-border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 36px;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-accent);
+  }
+
+  .timeline-period {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .timeline-role {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0 2px;
+  }
+
+  .timeline-company {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 10px;
+    max-width: 640px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .skill-group {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+
+  .skill-category {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  .skill-list {
+    list-style: none;
+  }
+
+  .skill-list li {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    padding: 5px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .skill-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .award-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .award-item {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+  }
+
+  .award-year {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    min-width: 80px;
+  }
+
+  .award-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .award-org {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+  }
+
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 18px 24px;
+  }
+
+  .edu-degree {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+
+  .edu-period {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cert-list li {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    padding: 10px 16px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    .edu-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .award-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+</style>

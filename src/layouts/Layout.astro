@@ -1,0 +1,115 @@
+---
+import "../styles/global.css";
+import { site, nav } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const pageTitle = title ? `${title} · ${site.name}` : `${site.name} — ${site.title}`;
+const pageDescription = description || site.tagline;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={site.profileImage} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="/" class="logo">{site.name}</a>
+        <nav class="nav">
+          {nav.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <style>
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background-color: rgba(15, 17, 21, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--color-border);
+      }
+
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+      }
+
+      .logo {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--color-text);
+      }
+
+      .logo:hover {
+        color: var(--color-accent);
+      }
+
+      .nav {
+        display: flex;
+        gap: 28px;
+      }
+
+      .nav a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-secondary);
+      }
+
+      .nav a:hover {
+        color: var(--color-text);
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--color-border);
+        padding: 32px 0;
+        margin-top: 64px;
+      }
+
+      .site-footer p {
+        font-size: 13px;
+        color: var(--color-text-muted);
+        text-align: center;
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          flex-direction: column;
+          gap: 12px;
+        }
+        .nav {
+          gap: 20px;
+        }
+      }
+    </style>
+  </body>
+</html>

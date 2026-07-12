@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+---
+
+<Layout title="Contact">
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Get in Touch</h1>
+      <p class="page-subtitle">
+        Open to supply chain, procurement, operations, and project management roles — and always interested in connecting at the intersection of supply chain and AI.
+      </p>
+
+      <div class="contact-grid">
+        <a href={`mailto:${site.email}`} class="contact-card">
+          <div class="contact-icon">✉</div>
+          <div>
+            <p class="contact-label">Email</p>
+            <p class="contact-value">{site.email}</p>
+          </div>
+        </a>
+
+        <a href={site.linkedin} target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">in</div>
+          <div>
+            <p class="contact-label">LinkedIn</p>
+            <p class="contact-value">/in/nichung</p>
+          </div>
+        </a>
+
+        <a href={site.github} target="_blank" rel="noopener" class="contact-card">
+          <div class="contact-icon">⌥</div>
+          <div>
+            <p class="contact-label">GitHub</p>
+            <p class="contact-value">@nickchung0604</p>
+          </div>
+        </a>
+
+        <div class="contact-card">
+          <div class="contact-icon">⚲</div>
+          <div>
+            <p class="contact-label">Based in</p>
+            <p class="contact-value">{site.location}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 22px;
+    transition: all 0.2s;
+  }
+
+  a.contact-card:hover {
+    border-color: var(--color-accent);
+    background-color: var(--color-surface-hover);
+    color: var(--color-text);
+  }
+
+  .contact-icon {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-accent);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-accent-subtle);
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .contact-label {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    margin-bottom: 2px;
+  }
+
+  .contact-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    word-break: break-all;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
