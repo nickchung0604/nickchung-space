@@ -14,6 +14,21 @@ export const site = {
   },
 };
 
+export const pageMeta = {
+  about: {
+    title: "About Me",
+    subtitle: "20 years in global supply chains. Now bringing that operational rigor to AI.",
+  },
+  experience: {
+    title: "Experience & Projects",
+    subtitle: "Selected work spanning supply chain leadership, operations transformation, and AI product development.",
+  },
+  contact: {
+    title: "Get in Touch",
+    subtitle: "Open to supply chain, procurement, operations, and project management roles — and always interested in connecting at the intersection of supply chain and AI.",
+  },
+};
+
 export const highlights = [
   { value: "$220M+", label: "Annual Spend Managed" },
   { value: "20", label: "Years in Supply Chain" },

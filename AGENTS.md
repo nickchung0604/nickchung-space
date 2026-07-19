@@ -1,7 +1,7 @@
 # nickchung.space 个人网站 — 维护说明
 
 > 这份文档给未来的 Codex / Claude / 维护者看。读完就知道网站怎么搭的、内容在哪改、怎么上线。
-> 最后更新：2026-07-19
+> 最后更新：2026-07-19（内容全部统一进 site.ts）
 
 ## 一句话总览
 
@@ -89,6 +89,7 @@ nickchung-space/
 | `certifications` | 数组 | 证书 | About 页 |
 | `awards` | 数组 | 奖项 | About 页 |
 | `nav` | 数组 | 顶部导航菜单 | 全部页面（Layout）|
+| `pageMeta` | 对象 | 三个内页的标题+副标题（about/experience/contact）| 对应内页 |
 
 `site` 对象内的字段：
 - `name`、`title`、`tagline`（首页大标题区）
@@ -130,17 +131,13 @@ nickchung-space/
 
 ---
 
-## 6. 已知：写死在页面里、不在 site.ts 的内容
+## 6. 内容已全部统一进 site.ts
 
-以下副标题目前直接写在各自页面文件里（未搬进数据仓库），改它们要动 `.astro` 文件：
+首页和三个内页的所有文字内容（含各页标题、副标题、自我介绍）都已搬进 `src/data/site.ts`：
+- 首页自我介绍 → `site.current`
+- About / Experience / Contact 页的标题与副标题 → `pageMeta`
 
-| 内容 | 文件位置 |
-|---|---|
-| About 页副标题 | `src/pages/about.astro` 的 `page-subtitle` |
-| Experience 页副标题 | `src/pages/experience.astro` 的 `page-subtitle` |
-| Contact 页副标题 | `src/pages/contact.astro` 的 `page-subtitle` |
-
-首页的所有内容（含自我介绍）已全部在 `site.ts` 里。若要彻底统一，可把上面三条也搬进 `site.ts`，做法参考首页 `current` 字段。
+页面 `.astro` 文件里不再保留任何正文文字，全部用 `{...}` 引用。改任何文字，只需动 `site.ts` 一个文件。
 
 ---
 
@@ -217,7 +214,6 @@ curl -sI https://www.nickchung.space | grep -i location
 - [ ] 添加微信 QR 码
 - [ ] 添加推荐信（BCCI-Kenneth Lau、Electrolux-Carlos Santacruz）
 - [ ] 审核 site.ts 英文文案
-- [ ] （可选）把 3 个内页副标题也搬进 site.ts，彻底统一
 - [ ] （可选）www 重定向从 307 改 308 永久（SEO 略优，当前 307 可用）
 
 ---

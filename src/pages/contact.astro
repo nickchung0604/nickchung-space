@@ -1,15 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { site } from "../data/site";
+import { site, pageMeta } from "../data/site";
 ---
 
 <Layout title="Contact">
   <section class="section">
     <div class="container">
-      <h1 class="page-title">Get in Touch</h1>
-      <p class="page-subtitle">
-        Open to supply chain, procurement, operations, and project management roles — and always interested in connecting at the intersection of supply chain and AI.
-      </p>
+      <h1 class="page-title">{pageMeta.contact.title}</h1>
+      <p class="page-subtitle">{pageMeta.contact.subtitle}</p>
 
       <div class="contact-grid">
         <a href={`mailto:${site.email}`} class="contact-card">

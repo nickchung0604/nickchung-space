@@ -1,15 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { projects } from "../data/site";
+import { projects, pageMeta } from "../data/site";
 ---
 
 <Layout title="Experience">
   <section class="section">
     <div class="container">
-      <h1 class="page-title">Experience & Projects</h1>
-      <p class="page-subtitle">
-        Selected work spanning supply chain leadership, operations transformation, and AI product development.
-      </p>
+      <h1 class="page-title">{pageMeta.experience.title}</h1>
+      <p class="page-subtitle">{pageMeta.experience.subtitle}</p>
 
       <div class="projects">
         {projects.map((project, index) => (

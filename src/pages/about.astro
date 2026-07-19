@@ -1,15 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { timeline, skills, education, certifications, awards } from "../data/site";
+import { timeline, skills, education, certifications, awards, pageMeta } from "../data/site";
 ---
 
 <Layout title="About">
   <section class="section">
     <div class="container">
-      <h1 class="page-title">About Me</h1>
-      <p class="page-subtitle">
-        20 years in global supply chains. Now bringing that operational rigor to AI.
-      </p>
+      <h1 class="page-title">{pageMeta.about.title}</h1>
+      <p class="page-subtitle">{pageMeta.about.subtitle}</p>
 
       <div class="intro-block">
         <p>
