@@ -1,5 +1,5 @@
 export const site = {
-  name: "Nick Chung (Zhong Weikai)",
+  name: "Nick Chung (CHUNG Wei Kai)",
   title: "Supply Chain & Procurement Leader · AI Project Advisor",
   tagline:
     "20 years across global supply chains — from $220M+ direct-material spend at Dell to advising Hong Kong's first government AI agent project. Now building an AI companion robot venture.",
