@@ -8,6 +8,10 @@ export const site = {
   github: "https://github.com/nickchung0604",
   location: "Shanghai · Hong Kong · Shenzhen",
   profileImage: "/profile.jpg",
+  current: {
+    role: "Co-founder / Product Lead — Venus (AI Companion Robot)",
+    desc: "Co-founding an AI companion robot venture, leading product definition, pricing, and go-to-market. Previously advised on Hong Kong's first government AI agent project and SE Asia market expansion — applying 20 years of supply chain and operations expertise to AI-driven products.",
+  },
 };
 
 export const highlights = [
