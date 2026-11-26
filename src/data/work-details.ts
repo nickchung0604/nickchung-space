@@ -24,7 +24,7 @@ export const workDetails: Record<string, [string, string][]> = {
     ],
     [
       "Reporting the result",
-      "US$7.83 million is the reported 2016 program result. The three initiatives illustrate the work behind the program and are not additional to that total."
+      "US$7.83 million and 4.99% are reported for the 2016 program. US$220M+ describes the wider managed portfolio. The materials used here do not identify the eligible spend or whether the savings were realized or annualized."
     ]
   ],
   "venus-product-definition": [
@@ -38,7 +38,7 @@ export const workDetails: Record<string, [string, string][]> = {
     ],
     [
       "First-generation scope",
-      "The proposal set target segments and priority scenarios and included requirements for device updates and estimates for after-sales costs. The milestone was a product definition."
+      "The proposal set target segments and priority scenarios and included requirements for device updates and estimates for after-sales costs. The milestone reached was product definition: scope, priority scenarios, engineering requirements and after-sales planning. The materials here do not establish a completed pilot or commercial launch."
     ]
   ],
   "delta-supplier-strategy": [
@@ -86,7 +86,7 @@ export const workDetails: Record<string, [string, string][]> = {
     ],
     [
       "Site assessment",
-      "Use separate sections for manufacturing capability, quality systems and development. Summarize the findings before making a qualification decision."
+      "The pre-audit workbook has separate sections for manufacturing capability, quality systems and development. My remit included quote analysis, volume consolidation and negotiations, and screening two to three backup suppliers per category. The annual 20% (KRW 10 billion) figure is the reported sourcing result."
     ]
   ],
   "bcci-ai-partnership": [

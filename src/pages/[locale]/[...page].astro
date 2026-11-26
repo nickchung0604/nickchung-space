@@ -23,14 +23,14 @@ export function getStaticPaths() {
 const { locale, page = "" } = Astro.params;
 const isTraditional = locale === "zh-hant";
 const copy = isTraditional ? {
-  title:"我把產品決策、跨部門團隊與供應商串起來，讓構想能真正交付。", intro:"我制定供應商策略、帶領跨部門團隊推動營運改善，並把 AI 硬體構想轉成可開發、可驗收的產品規格。",
+  title:"直接物料採購與供應鏈主管", intro:"我專注於亞洲跨區域供應商管理、材料降本與營運轉型。在戴爾管理逾 2.2 億美元的年度直接物料採購額，在 Footprint Asia 帶領採購、專案與品質共 8 人的團隊，也將這些經驗運用到 AI 硬體產品定義。",
   work:"精選案例", about:"關於我", contact:"聯絡方式", cv:"下載英文履歷", profile:"職涯概覽",
   areas:["供應鏈與採購","管理與領導","AI 與科技"],
   browse:"依專業領域瀏覽案例", count:"篇案例", back:"返回精選案例",
   context:"業務背景", decisions:"我的角色與判斷", outcome:"成果", visual:"工作方法圖解",
   roles:["供應鏈暨專案管理總監","全球採購經理","Venus 產品負責人","供應鏈經理","供應鏈經理","全球採購經理","資深採購經理","專案總監／顧問","創辦人","採購總監","市場總監／獨立顧問"],
 } : {
-  title:"我让产品决策、跨部门团队和供应商协同起来，把构想变成可交付的成果。", intro:"我制定供应商策略、带领跨部门团队推进运营改进，并把 AI 硬件构想转化为可开发、可验收的产品需求。",
+  title:"直接物料采购与供应链负责人", intro:"我专注于亚洲跨区域供应商管理、直接物料降本和运营转型。在戴尔管理超过 2.2 亿美元的年度直接物料采购额，在 Footprint Asia 带领采购、项目和质量共 8 人的团队，也把这些经验用于 AI 硬件产品定义。",
   work:"精选案例", about:"关于我", contact:"联系方式", cv:"下载英文简历", profile:"职业经历",
   areas:["供应链与采购","管理与领导","AI 与技术"],
   browse:"按专业领域浏览案例", count:"篇案例", back:"返回精选案例",
@@ -64,7 +64,7 @@ const title = (featuredDoc ? featuredEvidence[featuredDoc.slug][featuredDoc.id][
 <Layout title={title} description={current?.[2] ?? copy.intro} locale={locale} pagePath={page}>
   {page === "" && <section class="portfolio-hero"><div class="container portfolio-hero-inner">
     <div><h1>{isTraditional ? "鐘煒凱" : "钟炜凯"}</h1><p class="portfolio-title">{copy.title}</p><p>{copy.intro}</p>
-      <div class="portfolio-actions"><a href={route("experience")}>{copy.work}</a><a href="/nick-chung-cv.html" download>{copy.cv}</a><a href={site.linkedin}>LinkedIn</a></div>
+      <div class="portfolio-actions"><a href={route("experience")}>{copy.work}</a><a href="/nick-chung-cv.pdf" download>{copy.cv}</a><a href={route("contact")}>{copy.contact}</a></div>
     </div><img src={site.profileImage} width="220" height="220" alt="Nick Chung" />
   </div></section>}
     {page === "about" && <>
@@ -155,6 +155,6 @@ const title = (featuredDoc ? featuredEvidence[featuredDoc.slug][featuredDoc.id][
       </section>}
       <nav class="work-jump">{capabilities.map((area,index) => area.slugs.includes(item.slug) && <a href={route(areaPath(area.id))}>{copy.areas[index]}</a>)}</nav>
     </>}
-    {page === "contact" && <p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.linkedin}>LinkedIn</a></p>}
+    {page === "contact" && <><p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.linkedin}>LinkedIn</a> · <a href="/nick-chung-cv.pdf" download>{copy.cv}（PDF）</a></p><p>{isTraditional ? "常駐上海，可考慮上海、香港與深圳的工作機會。" : "常驻上海，可考虑上海、香港和深圳的工作机会。"}</p></>}
   </div></div>}
 </Layout>

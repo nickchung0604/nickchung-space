@@ -1,16 +1,17 @@
 export const site = {
   name: "Nick Chung",
-  title: "I connect product decisions with the teams and suppliers that deliver them.",
+  title: "Direct Materials Procurement & Supply Chain Leader",
   tagline:
-    "I develop supplier strategies, lead operational improvements across functions, and translate AI hardware concepts into requirements that engineering teams can build and test.",
+    "I lead direct-material sourcing, cross-border supplier development, cost reduction and operational transformation across Asia. At Dell, I managed US$220M+ in annual direct-material spend. At Footprint Asia, I led an eight-person procurement, project and quality team. I’ve also applied this operating experience to AI hardware product definition.",
   email: "nickchung0604@163.com",
   linkedin: "https://www.linkedin.com/in/nichung",
   github: "https://github.com/nickchung0604",
-  location: "Shanghai · Hong Kong · Shenzhen",
+  location: "Shanghai",
+  targetLocations: "Shanghai · Hong Kong · Shenzhen",
   profileImage: "/profile.jpg",
   current: {
     role: "Product Lead — Phantova Technology · Venus",
-    desc: "Co-founding an AI companion robot venture, leading product definition, pricing, and go-to-market. Previously advised on Hong Kong's first government AI agent project and SE Asia market expansion — applying 20 years of supply chain and operations expertise to AI-driven products.",
+    desc: "Led first-generation product definition for Venus, an embodied AI hardware concept. Previously advised on an AI agent initiative for public-sector use in Hong Kong and SE Asia market expansion — applying 20 years of supply chain and operations expertise to AI-driven products.",
   },
 };
 
@@ -25,7 +26,7 @@ export const pageMeta = {
   },
   contact: {
     title: "Get in Touch",
-    subtitle: "Open to supply chain, procurement, operations, and project management roles — and always interested in connecting at the intersection of supply chain and AI.",
+    subtitle: "Open to procurement, strategic sourcing and supply chain leadership opportunities.",
   },
 };
 
@@ -50,7 +51,7 @@ export const timeline = [
     role: "Independent Advisor · Project Director",
     company: "BCCI / SES / xFusion (Hong Kong)",
     description:
-      "Advised Billion Concept Capital Investment, Secure Encryption Storage, and xFusion on AI strategy, procurement, and market expansion. Reporting to CEO. Managed vendor contracts for compute centers and agent platforms (hardware, cloud, software). Drove market entry into 5 SE Asian countries, closing a HK$7.5M project in Malaysia and signing a HK$32M five-year framework agreement. Organized brand events in Hong Kong and Kuala Lumpur with 150+ C-level attendees. Secured Hong Kong Science Park and港深 innovation tech park tenancies.",
+      "Advised Billion Concept Capital Investment, Secure Encryption Storage, and xFusion on AI strategy, procurement, and market expansion. Reporting to CEO. Managed vendor contracts for compute centers and agent platforms (hardware, cloud, software). Drove market entry into 5 SE Asian countries, helping close a HK$7.5M Malaysian project and coordinate a separate HK$32M five-year framework agreement. Organized brand events in Hong Kong and Kuala Lumpur with 150+ C-level attendees. Coordinated a Hong Kong Science Park application and helped secure a Hong Kong–Shenzhen innovation park tenancy.",
     tags: ["AI Strategy", "Vendor Management", "Market Expansion", "SE Asia"],
   },
   {
@@ -58,7 +59,7 @@ export const timeline = [
     role: "Supply Chain & Project Management Director",
     company: "Footprint Asia (Shanghai)",
     description:
-      "Led procurement (4), project management (3), and quality (1) teams — 8 people total. Introduced knowledge management system, established department SOPs, and integrated cross-departmental information flow with automated reporting. Managed 20+ suppliers and exported 300M+ units. Achieved ~$300K USD annual cost savings. Recovered 700K+ RMB through litigation.",
+      "Led procurement (4), project management (3), and quality (1) teams — 8 people total. Introduced knowledge management system, established department SOPs, and integrated cross-departmental information flow with automated reporting. Managed 20+ suppliers. The operation exported 300M+ units cumulatively during my tenure (September 2020–April 2024). Achieved ~$300K USD annual cost savings. Recovered 700K+ RMB through litigation.",
     tags: ["Team Leadership", "SOP", "Knowledge Management", "Cost Reduction"],
   },
   {
@@ -66,7 +67,7 @@ export const timeline = [
     role: "Senior Sourcing Manager (with McKinsey)",
     company: "SK Group × McKinsey & Company (Seoul)",
     description:
-      "Seconded to SK Group alongside McKinsey to drive strategic sourcing transformation. Managed $10–40M annual spend per category across PCBA, compressors, BLDC motors, die-casting, and more. Achieved 20% annual cost reduction totaling ₩10B KRW. Conducted on-site supplier validation and financial audits. Designed negotiation strategies with non-price levers (payment terms, capacity guarantees).",
+      "Seconded to SK Group alongside McKinsey to drive strategic sourcing transformation. Managed $10–40M annual spend per category across PCBA, compressors, BLDC motors, die-casting, and more. The sourcing program reported a 20% annual cost reduction (KRW 10 billion). My scope covered PCBA, compressors and motors, with US$10–40 million in annual spend per category. Conducted on-site supplier validation and financial audits. Designed negotiation strategies with non-price levers (payment terms, capacity guarantees).",
     tags: ["Strategic Sourcing", "Negotiation", "Supplier Audit", "Consulting"],
   },
   {
@@ -90,7 +91,7 @@ export const timeline = [
     role: "Global Procurement Manager",
     company: "Dell (Shanghai)",
     description:
-      "Managed $220M+ annual direct-material spend across 20+ desktop platforms. Drove 4.99% cost reduction in 2016 ($7.83M USD), averaging 1.25–2.20% annually in 2013–2015. Led VAVE initiatives: steel thinning ($1.3M), cable optimization ($0.3M), IC reclamation ($1.9M). Recovered $4M in overpayments. Received the Greater China President Award as part of a team (Q4 2015). Also won Q3 2014 Winning Together (SBA), Q1 2015 Bronze (MSI Packaging), Q2 2015 On the Spot (Metal Part Cost Analysis).",
+      "Managed US$220M+ in annual direct-material spend across 20+ desktop platforms. The 2016 cost-reduction program separately reported 4.99% and US$7.83M in savings. In 2013–2015, reported annual reductions ranged from 1.25% to 2.20%. Led VAVE initiatives: steel thinning ($1.3M), cable optimization ($0.3M), IC reclamation ($1.9M). Recovered $4M in overpayments. Received the Greater China President Award as part of a team (Q4 2015). Also won Q3 2014 Winning Together (SBA), Q1 2015 Bronze (MSI Packaging), Q2 2015 On the Spot (Metal Part Cost Analysis).",
     tags: ["Direct Materials", "VAVE", "Cost Reduction", "President's Award"],
   },
   {
@@ -106,7 +107,7 @@ export const timeline = [
     role: "Project Manager → Sourcing Manager",
     company: "Electrolux Asia Sourcing Center",
     description:
-      "Promoted from Purchasing Analyst to Project Manager. Delivered 40,000 water heaters ($4.8M revenue) and 30,000 air coolers ($1.34M revenue) to Brazil — $6.14M total in 2011. Led an automation project integrating price tracking, logistics, quality audit, accounting, and reporting — cutting process time from 22 days to 7 days (60%+ improvement). Increased global purchasing coverage from 60% to 80%+.",
+      "Coordinated engineering and suppliers from design and tooling through production. Delivered 40,000 water heaters ($4.8M revenue) and 30,000 air coolers ($1.34M revenue) to Brazil — $6.14M total in 2011. Led an automation project integrating price tracking, logistics, quality audit, accounting, and reporting — cutting process time from 22 days to 7 days (60%+ improvement). Increased global purchasing coverage from 60% to 80%+.",
     tags: ["Project Management", "Automation", "Global Sourcing"],
   },
   {
@@ -114,7 +115,7 @@ export const timeline = [
     role: "Political Warfare Officer (Psychology Counseling)",
     company: "Army, Taiwan",
     description:
-      "Provided 24/7 psychological support for 2,000+ personnel with zero suicide incidents. Led counseling team and conducted orientation training for new recruits.",
+      "Provided 24/7 psychological support for 2,000+ personnel. Led counseling team and conducted orientation training for new recruits.",
     tags: ["Leadership", "Counseling", "Crisis Management"],
   },
 ];
@@ -160,9 +161,9 @@ export const projects = [
     title: "Hong Kong Government AI Agent Project",
     period: "2024 — 2025 · BCCI × Zhipu AI",
     summary:
-      "Advised on Hong Kong's first government-facing AI agent project. Translated public service requirements into technical specifications. Coordinated strategic MoU with Zhipu AI and established a joint AI agent R&D center. Project ultimately discontinued.",
+      "Advised on an AI agent initiative for public-sector use in Hong Kong. Translated public service requirements into technical specifications. Coordinated strategic MoU with Zhipu AI and established a joint AI agent R&D center. Project ultimately discontinued.",
     highlights: [
-      "Signed Hong Kong's first government AI agent MoU with Zhipu AI",
+      "Signed a strategic AI cooperation MoU with Zhipu AI",
       "Established joint AI agent R&D center with talent acquisition oversight",
       "Negotiated vendor contracts for compute center and agent platform (hardware, cloud, software)",
       "Managed Hong Kong Science Park tenancy application through final approval",

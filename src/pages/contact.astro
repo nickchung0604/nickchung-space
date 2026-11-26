@@ -9,6 +9,7 @@ import { site, pageMeta } from "../data/site";
       <h1 class="page-title">{pageMeta.contact.title}</h1>
       <p class="page-subtitle">{pageMeta.contact.subtitle}</p>
 
+      <p class="page-subtitle"><a href="/nick-chung-cv.pdf" download>Download English CV (PDF)</a></p>
       <div class="contact-grid">
         <a href={`mailto:${site.email}`} class="contact-card">
           <div class="contact-icon">✉</div>
@@ -38,7 +39,7 @@ import { site, pageMeta } from "../data/site";
           <div class="contact-icon">⚲</div>
           <div>
             <p class="contact-label">Based in</p>
-            <p class="contact-value">{site.location}</p>
+            <p class="contact-value">{site.location}</p><p class="contact-label">Open to roles in {site.targetLocations}</p>
           </div>
         </div>
       </div>
