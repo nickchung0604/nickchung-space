@@ -1,4 +1,6 @@
 ---
+import { careerLinks } from "../data/career-links";
+import { work } from "../data/work";
 import Layout from "../layouts/Layout.astro";
 import { timeline, skills, education, certifications, awards, pageMeta } from "../data/site";
 ---
@@ -35,14 +37,14 @@ import { timeline, skills, education, certifications, awards, pageMeta } from ".
     <div class="container">
       <p class="section-title">Career Timeline</p>
       <div class="timeline">
-        {timeline.map((item) => (
+        {timeline.map((item, index) => (
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <span class="timeline-period">{item.period}</span>
               <h3 class="timeline-role">{item.role}</h3>
               <p class="timeline-company">{item.company}</p>
-              <p class="timeline-desc">{item.description}</p>
+              <p class="timeline-desc">{item.description}</p><ul class="career-case-links">{careerLinks[index][4].map(slug => <li><a href={`/experience/${slug}/`}>{work.find(entry => entry.slug === slug)?.title}</a></li>)}</ul>
               <div class="timeline-tags">
                 {item.tags.map((tag) => (
                   <span class="tag">{tag}</span>

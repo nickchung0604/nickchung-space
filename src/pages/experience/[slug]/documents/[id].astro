@@ -1,0 +1,10 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import FeaturedEvidence from "../../../../components/FeaturedEvidence.astro";
+import { featuredDocumentRoutes, featuredEvidence } from "../../../../data/featured-evidence";
+export function getStaticPaths() {
+  return featuredDocumentRoutes.map(route => ({ params: route, props: route }));
+}
+const { slug, id } = Astro.props;
+---
+<Layout title={featuredEvidence[slug][id][0]}><FeaturedEvidence slug={slug} document={id} /></Layout>

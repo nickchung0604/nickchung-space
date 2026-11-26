@@ -1,0 +1,22 @@
+---
+import { venusEvidence, venusEvidenceIds } from "../data/venus-evidence";
+const { locale = "en", document } = Astro.props as { locale?: string; document?: keyof typeof venusEvidence };
+const lang = locale === "zh-hant" ? 2 : locale === "zh-hans" ? 3 : 1;
+const prefix = locale === "en" ? "" : "/" + locale;
+const base = prefix + "/experience/venus-product-definition/";
+const labels = lang === 2 ? ["決策順序與工作文件","查看文件摘錄","返回 Venus 案例","原始文件重點與數據"] : lang === 3 ? ["决策顺序与工作文档","查看文档摘录","返回 Venus 案例","原始文档要点与数据"] : ["Decision sequence and working documents","Read document excerpt","Back to the Venus case","Source document extract"];
+const record = document ? venusEvidence[document] : undefined;
+---
+{record ? <article class="portfolio-light"><div class="container case-content">
+  <a href={base}>{labels[2]}</a><p class="work-meta">{record[0]} · {labels[3]}</p><h1>{record[lang]}</h1>
+  <p>{record[lang+3]}</p>
+</div></article> : <section>
+  <h2>{labels[0]}</h2>
+  <ol class="case-details venus-sequence">
+    {venusEvidenceIds.map(id => {
+      const record = venusEvidence[id];
+      return <li><p class="work-meta">{record[0]}</p><h3>{record[lang]}</h3><p>{record[lang+3]}</p>
+        <a href={base + "documents/" + id + "/"}>{labels[1]}</a></li>;
+    })}
+  </ol>
+</section>}

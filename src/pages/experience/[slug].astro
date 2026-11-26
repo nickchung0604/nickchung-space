@@ -1,6 +1,8 @@
 ---
 import CaseVisual from "../../components/CaseVisual.astro";
 import CartonWorkbook from "../../components/CartonWorkbook.astro";
+import VenusEvidence from "../../components/VenusEvidence.astro";
+import FeaturedEvidence from "../../components/FeaturedEvidence.astro";
 import Layout from "../../layouts/Layout.astro";
 import { work, workCopy } from "../../data/work";
 import { workDetails, capabilities } from "../../data/work-details";
@@ -25,6 +27,8 @@ const details = workDetails[item.slug] ?? [];
         {details.map(([heading, text]) => <div><dt>{heading}</dt><dd>{text}</dd></div>)}
       </dl></section>}
       {item.slug === "delta-carton-cost-analysis" ? <CartonWorkbook /> : <CaseVisual slug={item.slug} />}
+      {item.slug === "venus-product-definition" && <VenusEvidence />}
+      <FeaturedEvidence slug={item.slug} />
       <section><h2>{workCopy.outcome}</h2><p>{item.outcome}</p></section>
       <nav class="work-jump" aria-label="Related capabilities">
         {capabilities.filter(area => area.slugs.includes(item.slug)).map(area => <a href={`/experience/area/${area.id}/`}>{area.title}</a>)}

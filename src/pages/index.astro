@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { featuredLabels } from "../data/featured-evidence";
 import WorkCard from "../components/WorkCard.astro";
 import { site } from "../data/site";
 import { featuredWork, workCopy } from "../data/work";
@@ -23,7 +24,7 @@ import { featuredWork, workCopy } from "../data/work";
   <section class="portfolio-light">
     <div class="container">
       <h2>{workCopy.title}</h2>
-      <div class="work-grid">{featuredWork.map(item => <WorkCard item={item} />)}</div>
+      <div class="work-grid">{featuredWork.map(item => <WorkCard item={item} label={featuredLabels[item.slug][0]} />)}</div>
     </div>
   </section>
 </Layout>

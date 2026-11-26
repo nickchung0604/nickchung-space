@@ -1,0 +1,30 @@
+---
+const { category, locale = "en" } = Astro.props;
+const data: Record<string, [string, number, number, number, number, number, number][]> = {"cable":[["A",3,5,2.5,2,3,15.5],["B",4,4,2.5,2,3,15.5],["C",5,5,5,5,4,24],["D",5,5,4,5,3.5,22.5],["E",2,5,3,3.5,3,16.5]],"pwb":[["A",3,5,5,5,1.5,21.5],["B",3,5,4.5,4,3.5,20],["C",3,5,3.5,3,3,17.5],["D",3,5,5,5,4,22],["E",3,5,5,4,4,21],["F",3,5,3.5,2.5,4,18]],"sheet-metal":[["A",4,4.5,3.5,3.5,3.5,19],["B",4,5,4,4.5,3,20.5],["D",4,5,3,3.5,3,18.5]]};
+const rows = data[category];
+const labels = locale === "zh-hant" ? ["技術","品質","回應","交貨","成本"] : locale === "zh-hans" ? ["技术","质量","响应","交付","成本"] : ["Technology","Quality","Response","Delivery","Cost"];
+const title = locale === "zh-hant" ? "原簡報 TQRDC 雷達圖與評分" : locale === "zh-hans" ? "原简报 TQRDC 雷达图与评分" : "Original TQRDC scores shown as radar charts";
+const sub = locale === "zh-hant" ? "原表採 1–5 分滿意度。分數、總分沿用簡報，供應商使用代號。" : locale === "zh-hans" ? "原表采用 1–5 分满意度。分数和总分沿用简报，供应商使用代号。" : "Original slide ratings on a 1–5 satisfaction scale. Supplier aliases match the allocation table.";
+const total = locale === "en" ? "Total" : locale === "zh-hant" ? "總分" : "总分";
+const axes = ["T","Q","R","D","C"];
+const point = (axis: number, value: number) => {
+  const angle = (axis * 72 - 90) * Math.PI / 180;
+  return [85 + Math.cos(angle) * value * 11, 74 + Math.sin(angle) * value * 11];
+};
+const polygon = (scores: number[]) => scores.map((value, axis) => point(axis, value).join(",")).join(" ");
+---
+{rows && <section><h2>{title}</h2><p>{sub}</p>
+  <div class="radar-grid">
+    {rows.map(row => <figure><figcaption>{row[0]} · {row[6]}/25</figcaption>
+      <svg viewBox="0 0 170 145" role="img" aria-label={row[0] + ": " + row.slice(1,6).join(", ")}>
+        {[1,2,3,4,5].map(level => <polygon points={polygon(axes.map(() => level))} fill="none" stroke="#bdcddd" />)}
+        {axes.map((axis,index) => { const [x,y] = point(index,5); const [tx,ty] = point(index,6.1); return <g><line x1="85" y1="74" x2={x} y2={y} stroke="#a7bbce"/><text x={tx} y={ty} text-anchor="middle" dominant-baseline="central" fill="#172b42" font-size="12">{axis}</text></g>; })}
+        <polygon points={polygon(row.slice(1,6) as number[])} fill="#5289bd" fill-opacity=".35" stroke="#174f8b" stroke-width="2" />
+      </svg></figure>)}
+  </div>
+  <div class="case-visual case-visual-scroll" tabindex="0" role="region" aria-label={title}>
+    <table><thead><tr><th scope="col">{locale === "en" ? "Supplier" : "供應商／供应商"}</th>{labels.map((label,index) => <th scope="col">{axes[index]} · {label}</th>)}<th scope="col">{total}</th></tr></thead>
+      <tbody>{rows.map(row => <tr><th scope="row">{row[0]}</th>{row.slice(1).map(value => <td>{value}</td>)}</tr>)}</tbody></table>
+  </div>
+  <p>{locale === "zh-hant" ? "另存的正式評分範本採 T 20%、Q 30%、R 20%、D 15%、C 15%；上表為簡報內的直接加總，兩種口徑各自保留。" : locale === "zh-hans" ? "另存的正式评分模板采用 T 20%、Q 30%、R 20%、D 15%、C 15%；上表为简报内的直接加总，两种口径分别保留。" : "The separate formal scorecard template uses weights of T 20%, Q 30%, R 20%, D 15% and C 15%. The slide totals above are unweighted sums."}</p>
+</section>}

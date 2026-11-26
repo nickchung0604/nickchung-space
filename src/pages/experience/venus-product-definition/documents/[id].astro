@@ -1,0 +1,8 @@
+---
+import Layout from "../../../../layouts/Layout.astro";
+import VenusEvidence from "../../../../components/VenusEvidence.astro";
+import { venusEvidence, venusEvidenceIds } from "../../../../data/venus-evidence";
+export function getStaticPaths() { return venusEvidenceIds.map(id => ({ params: { id }, props: { id } })); }
+const { id } = Astro.props;
+---
+<Layout title={venusEvidence[id][1]}><VenusEvidence document={id} /></Layout>

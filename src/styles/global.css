@@ -154,3 +154,16 @@ img {
 .capability-skills { display: grid; grid-template-columns: repeat(auto-fit,minmax(15rem,1fr)); gap: .55rem 1.4rem; padding-left: 1.2rem; }
 .carton-workbook table { min-width: 48rem; font-variant-numeric: tabular-nums; }
 .carton-workbook pre { white-space: pre-wrap; background: #eaf1fa; padding: 1rem; margin: 1rem 0; border-radius: .4rem; }
+.venus-sequence { padding-left: 1.4rem; }
+.venus-sequence > li { background: white; padding: 1rem; border: 1px solid #cfdbea; }
+.venus-sequence h3 { margin: .25rem 0; }
+.featured-label { color: #174f8b; font-weight: 700; margin-bottom: .45rem; }
+.radar-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(10rem,1fr)); gap: .8rem; margin: 1rem 0; }
+.radar-grid figure { background: white; border: 1px solid #cfdbea; border-radius: .4rem; padding: .6rem; margin: 0; }
+.radar-grid figure svg { display: block; width: 100%; }
+.case-index-list { padding: 0; list-style: none; margin: .8rem 0; }
+.case-index-list li { display: flex; flex-wrap: wrap; gap: .25rem 1rem; padding: .65rem 0; border-bottom: 1px solid #cfdbea; }
+.case-index-list li span { color: #405975; font-size: .9rem; }
+.career-entries { display: grid; gap: 1rem; }
+.career-case-links { margin: .5rem 0; padding-left: 1.25rem; }
+.timeline-content .career-case-links a { color: #a6d0ff; text-decoration: underline; }

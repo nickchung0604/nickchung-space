@@ -1,8 +1,9 @@
 ---
 import type { work } from "../data/work";
-const { item } = Astro.props as { item: (typeof work)[number] };
+const { item, label } = Astro.props as { item: (typeof work)[number]; label?: string };
 ---
 <article class="work-card">
+  {label && <p class="featured-label">{label}</p>}
   <p class="work-meta">{item.company} · {item.period}</p>
   <h3><a href={`/experience/${item.slug}/`}>{item.title}</a></h3>
   <strong>{item.result}</strong>

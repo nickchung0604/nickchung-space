@@ -1,6 +1,12 @@
 ---
 import { traditionalSkills, simplifiedSkills } from "../../data/zh-skills";
 import CartonWorkbook from "../../components/CartonWorkbook.astro";
+import VenusEvidence from "../../components/VenusEvidence.astro";
+import { venusEvidence, venusEvidenceIds } from "../../data/venus-evidence";
+import FeaturedEvidence from "../../components/FeaturedEvidence.astro";
+import { featuredDocumentRoutes, featuredEvidence, featuredLabels } from "../../data/featured-evidence";
+import { careerLinks } from "../../data/career-links";
+import { timeline } from "../../data/site";
 import Layout from "../../layouts/Layout.astro";
 import { work, featuredWork } from "../../data/work";
 import { capabilities, legacyCapabilities } from "../../data/work-details";
@@ -9,7 +15,7 @@ import { traditional } from "../../data/zh-hant-content";
 import { site } from "../../data/site";
 
 export function getStaticPaths() {
-  const pages = ["", "about", "contact", "experience", ...[...capabilities, ...legacyCapabilities].map(area => "experience/area/" + area.id), ...work.map(item => "experience/" + item.slug)];
+  const pages = ["", "about", "contact", "experience", ...[...capabilities, ...legacyCapabilities].map(area => "experience/area/" + area.id), ...work.map(item => "experience/" + item.slug), ...venusEvidenceIds.map(id => "experience/venus-product-definition/documents/" + id), ...featuredDocumentRoutes.map(({slug,id}) => "experience/" + slug + "/documents/" + id)];
   return ["zh-hans", "zh-hant"].flatMap(locale => pages.map(page => ({ params: { locale, page: page || undefined } })));
 }
 const { locale, page = "" } = Astro.params;
@@ -20,14 +26,14 @@ const copy = isTraditional ? {
   areas:["供應鏈與採購","管理與領導","AI 與科技"],
   browse:"依專業領域瀏覽案例", count:"篇案例", back:"返回精選案例",
   context:"業務背景", decisions:"我的角色與判斷", outcome:"成果", visual:"工作方法圖解",
-  roles:["供應鏈暨專案管理總監","全球採購經理","Venus 產品負責人","供應鏈經理","供應鏈經理","全球採購經理","資深採購經理","專案總監／顧問","創辦人","採購總監"],
+  roles:["供應鏈暨專案管理總監","全球採購經理","Venus 產品負責人","供應鏈經理","供應鏈經理","全球採購經理","資深採購經理","專案總監／顧問","創辦人","採購總監","市場總監／獨立顧問"],
 } : {
   title:"我让产品决策、跨部门团队和供应商协同起来，把构想变成可交付的成果。", intro:"我制定供应商策略、带领跨部门团队推进运营改进，并把 AI 硬件构想转化为可开发、可验收的产品需求。",
   work:"精选案例", about:"关于我", contact:"联系方式", cv:"下载英文简历", profile:"职业经历",
   areas:["供应链与采购","管理与领导","AI 与技术"],
   browse:"按专业领域浏览案例", count:"篇案例", back:"返回精选案例",
   context:"业务背景", decisions:"我的职责和关键判断", outcome:"成果", visual:"关键做法图解",
-  roles:["供应链与项目管理总监","全球采购经理","Venus 产品负责人","供应链经理","供应链经理","全球采购经理","高级采购经理","项目总监／顾问","创始人","采购总监"],
+  roles:["供应链与项目管理总监","全球采购经理","Venus 产品负责人","供应链经理","供应链经理","全球采购经理","高级采购经理","项目总监／顾问","创始人","采购总监","市场总监／独立顾问"],
 };
 const entries = isTraditional ? traditional : simplified;
 const route = (suffix = "") => "/" + locale + "/" + (suffix ? suffix + "/" : "");
@@ -40,7 +46,9 @@ const item = work[itemIndex];
 const current = item && entries[item.slug];
 const area = capabilities[areaIndex];
 const cards = area ? area.slugs.map(slug => work.find(item => item.slug === slug)!) : featuredWork;
-const title = current?.[0] ?? (area ? copy.areas[areaIndex] : page === "contact" ? copy.contact : page === "about" ? copy.about : page === "experience" ? copy.work : copy.title);
+const doc = venusEvidenceIds.find(id => page === "experience/venus-product-definition/documents/" + id);
+const featuredDoc = featuredDocumentRoutes.find(({slug,id}) => page === "experience/" + slug + "/documents/" + id);
+const title = (featuredDoc ? featuredEvidence[featuredDoc.slug][featuredDoc.id][isTraditional ? 1 : 2] : undefined) ?? (doc ? venusEvidence[doc][isTraditional ? 2 : 3] : undefined) ?? current?.[0] ?? (area ? copy.areas[areaIndex] : page === "contact" ? copy.contact : page === "about" ? copy.about : page === "experience" ? copy.work : copy.title);
 ---
 <Layout title={title} description={current?.[2] ?? copy.intro} locale={locale} pagePath={page}>
   {page === "" && <section class="portfolio-hero"><div class="container portfolio-hero-inner">
@@ -48,15 +56,23 @@ const title = current?.[0] ?? (area ? copy.areas[areaIndex] : page === "contact"
       <div class="portfolio-actions"><a href={route("experience")}>{copy.work}</a><a href="/nick-chung-cv.html" download>{copy.cv}</a><a href={site.linkedin}>LinkedIn</a></div>
     </div><img src={site.profileImage} width="220" height="220" alt="Nick Chung" />
   </div></section>}
-  <div class="portfolio-light"><div class:list={["container", {"case-content": Boolean(current)}]}>
+  {doc ? <VenusEvidence locale={locale} document={doc} /> : featuredDoc ? <FeaturedEvidence slug={featuredDoc.slug} document={featuredDoc.id} locale={locale} /> : <div class="portfolio-light"><div class:list={["container", {"case-content": Boolean(current)}]}>
     {(area || current) && <a href={route("experience")}>{copy.back}</a>}
     {page && <h1>{title}</h1>}
-    {page === "experience" && <><p>{copy.browse}</p><div class="capability-grid">
-      {capabilities.map((area, index) => <a class="capability-card" href={route(areaPath(area.id))}><h2>{copy.areas[index]}</h2><span>{area.slugs.length} {copy.count}</span></a>)}
-    </div></>}
+    {page === "experience" && <>
+      <nav class="work-jump">{capabilities.map((area,index) => <a href={`#${area.id}`}>{copy.areas[index]}</a>)}</nav>
+      {capabilities.map((area,index) => <section class="work-category" id={area.id}>
+        <h2>{copy.areas[index]}</h2>
+        <ul class="case-index-list">{area.slugs.map(slug => {
+          const item = work.find(entry => entry.slug === slug)!;
+          return <li><a href={route(casePath(slug))}>{entries[slug][0]}</a><span>{item.company} · {item.period}</span></li>;
+        })}</ul>
+        <a href={route(areaPath(area.id))}>{isTraditional ? "查看能力細項" : "查看能力细项"}</a>
+      </section>)}
+    </>}
     {area && <section><h2>{isTraditional ? "能力細項" : "能力细项"}</h2><ul class="capability-skills">{(isTraditional ? traditionalSkills : simplifiedSkills)[areaIndex].map(skill => <li>{skill}</li>)}</ul></section>}
-    {(area || !page) && <><h2>{copy.work}</h2><div class="work-grid area-cases">
-      {cards.map(item => <article class="work-card"><p class="work-meta">{item.company} · {item.period}</p>
+    {(area || !page) && <><h2>{copy.work}</h2><div class:list={["work-grid", { "area-cases": Boolean(area) }]}>
+      {cards.map(item => <article class="work-card">{!page && <p class="featured-label">{featuredLabels[item.slug][isTraditional ? 1 : 2]}</p>}<p class="work-meta">{item.company} · {item.period}</p>
         <h2><a href={route(casePath(item.slug))}>{entries[item.slug][0]}</a></h2><strong>{entries[item.slug][1]}</strong><p>{entries[item.slug][2]}</p></article>)}
     </div></>}
     {current && <><p class="work-meta">{item.company} · {item.period} · {copy.roles[itemIndex]}</p><p class="case-result">{current[1]}</p><p>{current[2]}</p>
@@ -66,6 +82,8 @@ const title = current?.[0] ?? (area ? copy.areas[areaIndex] : page === "contact"
         const [heading, ...detail] = row.split("｜");
         return <div><dt>{heading}</dt><dd>{detail.join(" · ")}</dd></div>;
       })}</dl></section>}
+      {item.slug === "venus-product-definition" && <VenusEvidence locale={locale} />}
+      <FeaturedEvidence slug={item.slug} locale={locale} />
       <section><h2>{copy.outcome}</h2><p>{current[5]}</p></section>
       {item.evidence.length > 0 && <section><h2>{isTraditional ? "工作示意圖" : "工作示意图"}</h2>
         {item.evidence.map(sample => <figure class="case-visual">
@@ -76,9 +94,14 @@ const title = current?.[0] ?? (area ? copy.areas[areaIndex] : page === "contact"
       </section>}
       <nav class="work-jump">{capabilities.map((area,index) => area.slugs.includes(item.slug) && <a href={route(areaPath(area.id))}>{copy.areas[index]}</a>)}</nav>
     </>}
-    {page === "about" && <><p>{copy.intro}</p><section><h2>{copy.profile}</h2><ul class="work-dates">
-      {[...work].sort((a,b) => b.year - a.year).map(item => <li><span>{item.period} · {item.company}</span><a href={route(casePath(item.slug))}>{entries[item.slug][0]}</a></li>)}
-    </ul></section></>}
+    {page === "about" && <><p>{copy.intro}</p><section><h2>{isTraditional ? "任職時間線" : "任职时间线"}</h2><div class="career-entries">
+      {timeline.map((item,index) => {
+        const [roleHant,roleHans,descHant,descHans,slugs] = careerLinks[index];
+        return <article class="work-card"><p class="work-meta">{item.period} · {item.company}</p><h3>{isTraditional ? roleHant : roleHans}</h3><p>{isTraditional ? descHant : descHans}</p>
+          {slugs.length > 0 && <ul class="career-case-links">{slugs.map(slug => <li><a href={route(casePath(slug))}>{entries[slug][0]}</a></li>)}</ul>}
+        </article>;
+      })}
+    </div></section></>}
     {page === "contact" && <p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.linkedin}>LinkedIn</a></p>}
-  </div></div>
+  </div></div>}
 </Layout>

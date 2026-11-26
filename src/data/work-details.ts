@@ -143,6 +143,7 @@ export const capabilities = [
     "slugs": [
       "footprint-asia",
       "zebra-procurement-team",
+      "ses-malaysia-delivery",
       "bcci-ai-partnership",
       "intelove-product-development"
     ]

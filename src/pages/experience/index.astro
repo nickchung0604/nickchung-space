@@ -1,21 +1,22 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { workCopy } from "../../data/work";
+import { work, workCopy } from "../../data/work";
 import { capabilities } from "../../data/work-details";
 import { capabilityDescriptions } from "../../data/work-visuals";
 ---
 <Layout title={workCopy.title}>
-  <div class="portfolio-light">
-    <div class="container">
-      <h1>{workCopy.title}</h1>
-      <p>Explore my work by capability.</p>
-      <div class="capability-grid">
-        {capabilities.map(area => <a class="capability-card" href={`/experience/area/${area.id}/`}>
-          <h2>{area.title}</h2>
-          <p>{capabilityDescriptions[area.id]}</p>
-          <span>{area.slugs.length} case studies</span>
-        </a>)}
-      </div>
-    </div>
-  </div>
+  <div class="portfolio-light"><div class="container">
+    <h1>{workCopy.title}</h1>
+    <nav class="work-jump" aria-label="Capabilities">
+      {capabilities.map(area => <a href={`#${area.id}`}>{area.title}</a>)}
+    </nav>
+    {capabilities.map(area => <section class="work-category" id={area.id}>
+      <h2>{area.title}</h2><p>{capabilityDescriptions[area.id]}</p>
+      <ul class="case-index-list">{area.slugs.map(slug => {
+        const item = work.find(entry => entry.slug === slug)!;
+        return <li><a href={`/experience/${slug}/`}>{item.title}</a><span>{item.company} · {item.period}</span></li>;
+      })}</ul>
+      <a href={`/experience/area/${area.id}/`}>View capability details</a>
+    </section>)}
+  </div></div>
 </Layout>

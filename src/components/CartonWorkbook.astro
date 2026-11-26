@@ -35,6 +35,22 @@ const comparison = locale === "zh-hant"
   : locale === "zh-hans"
   ? ["交叉报价与数量", "料号代号", "数量（只）", "供应商 B 新报价（THB）", "供应商 B 原报价（THB）", "供应商 B 涨幅", "供应商 C（USD）", "供应商 C（THB）", "四款产品合计 14,000 只。工作簿一并比较了其他来源的报价，并建议就用量较高的料号取得两家供应商的报价。破折号表示原表没有可比数据。"]
   : ["Cross-supplier quotes and volumes", "Item code", "Volume (units)", "Supplier B new (THB)", "Supplier B previous (THB)", "Supplier B change", "Supplier C (USD)", "Supplier C (THB)", "The four items totaled 14,000 units. The workbook compared other quotes and recommended obtaining two quotes for the higher-volume items. A dash indicates no comparable value in the original sheet."];
+const parameterRows = locale === "zh-hant" ? [
+  ["0.4551", "原表 Paper U/P，單位為美元／千平方英吋紙板，約合每平方公尺 0.7054 美元。四列使用同一數值。原表未記錄牌號、報價日期或原始報價單。"],
+  ["÷ 10,000 × 1.55", "先把平方公分轉為平方公尺，再轉為千平方英吋。1 平方英吋恰為 6.4516 平方公分，因此 1 平方公尺約為 1.550003 千平方英吋。"],
+  ["+5、+3、×2", "原表保存的紙箱展開估算式。×2 對應長、寬兩組箱面。+5 與 +3 為這個算式的尺寸加量，原表未細分各自的接合、摺線或修邊留量。"],
+  ["31.5", "原表的幣別換算假設，每美元 31.5 泰銖。"]
+] : locale === "zh-hans" ? [
+  ["0.4551", "原表 Paper U/P，单位为美元／千平方英寸纸板，约合每平方米 0.7054 美元。四行使用同一数值。原表没有记录纸板牌号、报价日期或原始报价单。"],
+  ["÷ 10,000 × 1.55", "先把平方厘米换算为平方米，再换算成千平方英寸。1 平方英寸恰为 6.4516 平方厘米，所以 1 平方米约等于 1.550003 千平方英寸。"],
+  ["+5、+3、×2", "原表采用的纸箱展开估算式。×2 对应长、宽两组箱面。+5 和 +3 是这个算式的尺寸加量，原表没有细分接合、压线或修边余量。"],
+  ["31.5", "原表的汇率假设，1 美元兑 31.5 泰铢。"]
+] : [
+  ["0.4551", "The workbook’s paperboard input price, in USD per thousand square inches, equivalent to about USD 0.7054/m². All four rows use the same input. The workbook gives no board grade, quote date or original price quotation."],
+  ["÷ 10,000 × 1.55", "Convert cm² to m², then m² to thousands of square inches. One square inch is exactly 6.4516 cm², so one square meter is approximately 1.550003 thousand square inches."],
+  ["+5, +3, ×2", "The carton blank estimating formula recorded in the workbook. The factor of two reflects the repeated length and width panels. The added dimensions are allowances used by this formula, with no detailed breakdown of joints, scoring or trim in the workbook."],
+  ["31.5", "The workbook’s exchange-rate assumption of 31.5 THB per USD."]
+];
 const rows = [
   ["A · 498 × 298 × 220", "20.60", "15.98", "25.00", "19.47", "+21.84%", "−5.50%"],
   ["B · 498 × 298 × 244", "21.51", "16.31", "24.00", "20.35", "+24.79%", "−5.37%"],
@@ -57,6 +73,11 @@ const rows = [
   <pre><code>(L/10 + W/10 + 5) × (W/10 + H/10 + 3)
 × 2 × 0.4551 × 1.55 ÷ 10,000
 A = USD 0.65406 × 31.5 = THB 20.60</code></pre>
+  <h3>{locale === "en" ? "What the inputs mean" : locale === "zh-hant" ? "公式參數從哪裡來" : "公式参数从哪里来"}</h3>
+  <dl class="case-details">
+    {parameterRows.map(([input, detail]) => <div><dt>{input}</dt><dd>{detail}</dd></div>)}
+  </dl>
+  <p><a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9">NIST SP 811</a> · <a href="https://www.fefco.org/download/file/fid/1238">FEFCO 0201</a></p>
   <p>{zh.finding}</p>
   <figure class="case-visual">
     <div class="case-visual-scroll" tabindex="0" role="region" aria-label={comparison[0]}>

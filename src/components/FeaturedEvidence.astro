@@ -1,0 +1,26 @@
+---
+import DeltaRadar from "./DeltaRadar.astro";
+import { featuredEvidence } from "../data/featured-evidence";
+const { slug, locale = "en", document } = Astro.props;
+const lang = locale === "zh-hant" ? 1 : locale === "zh-hans" ? 2 : 0;
+const docs = featuredEvidence[slug];
+const root = (locale === "en" ? "" : "/" + locale) + "/experience/" + slug + "/";
+const labels = [
+  ["Decision sequence and source documents","Read the working record","Back to the case","Supplier","April actual","Q2 policy","Annual target"],
+  ["決策順序與原始資料","查看工作紀錄","返回案例","供應商代號","4 月實績","第二季政策","年度目標"],
+  ["决策顺序与原始资料","查看工作记录","返回案例","供应商代号","4 月实际","第二季度政策","年度目标"]
+][lang];
+const active = document && docs?.[document];
+---
+{active ? <article class="portfolio-light"><div class="container case-content">
+  <a href={root}>{labels[2]}</a><h1>{active[lang]}</h1><p>{active[lang+3]}</p>
+  {active[6].length > 0 && <figure class="case-visual"><div class="case-visual-scroll" tabindex="0" role="region" aria-label={active[lang]}>
+    <table><thead><tr>{labels.slice(3).map(label => <th scope="col">{label}</th>)}</tr></thead>
+      <tbody>{active[6].map(row => <tr><th scope="row">{row[0]}</th>{row.slice(1).map(value => <td>{value}</td>)}</tr>)}</tbody>
+    </table></div></figure>}
+{slug === "delta-supplier-strategy" && <DeltaRadar category={document} locale={locale} />}
+</div></article> : docs && <section><h2>{labels[0]}</h2>
+  <ol class="case-details venus-sequence">
+    {Object.entries(docs).map(([id, entry]) => <li><h3>{entry[lang]}</h3><p>{entry[lang+3]}</p><a href={root + "documents/" + id + "/"}>{labels[1]}</a></li>)}
+  </ol>
+</section>}
