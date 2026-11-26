@@ -40,7 +40,7 @@ export const highlights = [
 export const timeline = [
   {
     period: "2025.12 — 2026.11",
-    role: "Product Lead",
+    role: "Venus Product Lead",
     company: "Phantova Technology · Venus",
     description:
       "Led product definition, user research and cross-functional requirements for Venus, a high-fidelity companion robot.",
@@ -48,7 +48,7 @@ export const timeline = [
   },
   {
     period: "2024.4 — 2025.11",
-    role: "Independent Advisor · Project Director",
+    role: "Independent Consultant",
     company: "BCCI / SES / xFusion (Hong Kong)",
     description:
       "Worked as an independent consultant. At Billion Concept Capital Investment (BCCI), I led coordination of the AI partnership and translated service requirements into technical specifications. At Secure Encryption Storage (SES), I worked on regional sales and channel expansion. xFusion was part of the broader consulting engagement. Managed vendor contracts for compute centers and agent platforms (hardware, cloud, software). Drove market entry into 5 SE Asian countries, helping close a HK$7.5M Malaysian project and coordinate a separate HK$32M five-year framework agreement. Organized brand events in Hong Kong and Kuala Lumpur with 150+ C-level attendees. Coordinated a Hong Kong Science Park application and helped secure a Hong Kong–Shenzhen innovation park tenancy.",
@@ -64,7 +64,7 @@ export const timeline = [
   },
   {
     period: "2019.4 — 2020.2",
-    role: "Senior Sourcing Manager (with McKinsey)",
+    role: "Senior Procurement Manager",
     company: "SK Group × McKinsey & Company (Seoul)",
     description:
       "Worked alongside McKinsey on a strategic sourcing transformation for SK Group. The sourcing program reported a 20% annual cost reduction (KRW 10 billion). My scope covered PCBA, compressors and motors, with US$10–40 million in annual spend per category. Conducted on-site supplier validation and financial audits. Designed negotiation strategies with non-price levers (payment terms, capacity guarantees).",
@@ -81,7 +81,7 @@ export const timeline = [
   {
     period: "2016.12 — 2018.2",
     role: "Procurement Director",
-    company: "Zebra Tourism (Shanghai)",
+    company: "Zebra Travel (Shanghai)",
     description:
       "Managed ¥72M RMB in direct spend covering vehicle leasing, tour guide services, and core commodity procurement. Built a two-tier supplier system with legal agreements covering 80% of spend. Established quality control SOPs and a claims database. Achieved ¥720K cost savings in 2017 (1% overall reduction). Led 8-person team.",
     tags: ["Procurement Strategy", "Supplier System", "Team Management"],
@@ -89,7 +89,7 @@ export const timeline = [
   {
     period: "2013.4 — 2016.12",
     role: "Global Procurement Manager",
-    company: "Dell (Shanghai)",
+    company: "Dell Technologies (Shanghai)",
     description:
       "Managed US$220M+ in annual direct-material spend across 20+ desktop platforms. The 2016 cost-reduction program separately reported 4.99% and US$7.83M in savings. In 2013–2015, reported annual reductions ranged from 1.25% to 2.20%. Led VAVE initiatives: steel thinning ($1.3M), cable optimization ($0.3M), IC reclamation ($1.9M). Recovered $4M in overpayments. Received the Greater China President Award as part of a team (Q4 2015). Also won Q3 2014 Winning Together (SBA), Q1 2015 Bronze (MSI Packaging), Q2 2015 On the Spot (Metal Part Cost Analysis).",
     tags: ["Direct Materials", "VAVE", "Cost Reduction", "President's Award"],
@@ -104,7 +104,7 @@ export const timeline = [
   },
   {
     period: "2007.1 — 2011.8",
-    role: "Project Manager → Sourcing Manager",
+    role: "Project Procurement Manager",
     company: "Electrolux Asia Sourcing Center",
     description:
       "Coordinated engineering and suppliers from design and tooling through production. Delivered 40,000 water heaters ($4.8M revenue) and 30,000 air coolers ($1.34M revenue) to Brazil — $6.14M total in 2011. Led an automation project integrating price tracking, logistics, quality audit, accounting, and reporting — cutting process time from 22 days to 7 days (60%+ improvement). Increased global purchasing coverage from 60% to 80%+.",

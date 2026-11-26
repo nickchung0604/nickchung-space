@@ -160,6 +160,15 @@ export const featuredEvidence: Record<string, Record<string, [string,string,stri
     ]
   }
 };
+featuredEvidence["footprint-asia"]["shipment-exception"] = [
+  "Shipment exception — 70,000-unit projected gap",
+  "出貨異常：預估缺口 7 萬件",
+  "出货异常：预计缺口 7 万件",
+  "A tracker note flagged a March 11 shipment requirement of 200,000 units against an expected 130,000, a 70,000-unit gap. It separately recorded a March 8 physical inventory count of 85,600 units. Follow-up called for mold repair starting Saturday, updating the delivery plan in GDS from the tracker, and changing the March 18 expedited vessel pickup plan to 200,000 units. The note records the projected shortage and actions; it does not record the final shipped quantities.",
+  "追蹤紀錄顯示，3 月 11 日需出貨 20 萬件，當時預估 13 萬件，缺口 7 萬件。3 月 8 日實盤庫存另記為 85,600 件。後續安排週六開始維修模具、將追蹤表的交貨計畫同步到 GDS，並把 3 月 18 日快船提貨計畫調為 20 萬件。紀錄留下的是預估缺口與處置，沒有記載最終實際出貨數。",
+  "跟踪记录显示，3 月 11 日需发货 20 万件，当时预计 13 万件，缺口 7 万件。3 月 8 日实盘库存另记为 85,600 件。后续安排周六开始维修模具、把跟踪表的交付计划同步到 GDS，并将 3 月 18 日快船提货计划调至 20 万件。记录留下的是预计缺口和处置，没有记载最终实际发货数量。",
+  []
+];
 featuredEvidence["ses-malaysia-delivery"] = {
   "order": [
     "July 2 sales record — balance and handoff",
