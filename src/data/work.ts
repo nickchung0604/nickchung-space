@@ -11,7 +11,7 @@ import venus from "./cases/venus-product-definition.json";
 import deltaSuppliers from "./cases/delta-supplier-strategy.json";
 import deltaCarton from "./cases/delta-carton-cost-analysis.json";
 
-export const featuredWork = [venus, deltaSuppliers, footprint];
+export const featuredWork = [footprint, deltaSuppliers, venus];
 export const work = [footprint, dell, venus, deltaSuppliers, deltaCarton, dell_supplier_billing_accuracy, sk_supplier_qualification, bcci_ai_partnership, intelove_product_development, zebra_procurement_team, ses];
 export const workCopy = {
   title: "Selected Work",

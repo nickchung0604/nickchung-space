@@ -126,9 +126,9 @@ export const featuredEvidence: Record<string, Record<string, [string,string,stri
       "Shipment plan — keep demand and actuals separate",
       "出貨計畫：區分客戶需求與工廠實績",
       "出货计划：区分客户需求与工厂实际",
-      "The PM filled the marked fields. MRP represented the customer's requested ship quantity and date; Pick up represented the factory's actual shipped quantity and date. The production plan referenced the MRP baseline and was organized by factory, with all of a factory’s products grouped together.",
-      "專案管理負責填寫標記欄位。MRP 記客戶要求的出貨數量與日期，Pick up 記工廠實際出貨數量與日期。生產計畫連回 MRP，按工廠編排，同一家工廠的不同產品列在一起。",
-      "项目管理负责填写标记字段。MRP 记录客户要求的出货数量和日期，Pick up 记录工厂实际发货数量和日期。生产计划关联 MRP，按工厂编排，同一工厂的不同产品放在一起。",
+      "The PM filled the marked fields. MRP represented the customer's requested ship quantity and date; Pick up represented the factory's actual shipped quantity and date. The operating rule was to preserve the customer commitment as the baseline and record the actual separately. PM owned those fields. The production plan referenced MRP and grouped every product from the same factory, so a shipment shortfall could be traced to its production records before assigning follow-up.",
+      "專案管理負責填寫標記欄位。MRP 記客戶要求的出貨數量與日期，Pick up 記工廠實際出貨數量與日期。管理上的做法是保留客戶承諾為基準，實績另填，由專案管理負責。生產計畫連回 MRP 並按工廠整合，發現缺口時先追到工廠和製程，再交由對應人員跟進。",
+      "项目管理负责填写标记字段。MRP 记录客户要求的出货数量和日期，Pick up 记录工厂实际发货数量和日期。管理上的做法是保留客户承诺作为基准，实际发货另填，由项目管理负责。生产计划关联 MRP 并按工厂归集，发现缺口时先定位到工厂和工序，再由相应人员跟进。",
       []
     ],
     "production-plan": [

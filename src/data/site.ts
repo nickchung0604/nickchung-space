@@ -51,7 +51,7 @@ export const timeline = [
     role: "Independent Advisor · Project Director",
     company: "BCCI / SES / xFusion (Hong Kong)",
     description:
-      "Advised Billion Concept Capital Investment, Secure Encryption Storage, and xFusion on AI strategy, procurement, and market expansion. Reporting to CEO. Managed vendor contracts for compute centers and agent platforms (hardware, cloud, software). Drove market entry into 5 SE Asian countries, helping close a HK$7.5M Malaysian project and coordinate a separate HK$32M five-year framework agreement. Organized brand events in Hong Kong and Kuala Lumpur with 150+ C-level attendees. Coordinated a Hong Kong Science Park application and helped secure a Hong Kong–Shenzhen innovation park tenancy.",
+      "Worked as an independent consultant. At Billion Concept Capital Investment (BCCI), I led coordination of the AI partnership and translated service requirements into technical specifications. At Secure Encryption Storage (SES), I worked on regional sales and channel expansion. xFusion was part of the broader consulting engagement. Managed vendor contracts for compute centers and agent platforms (hardware, cloud, software). Drove market entry into 5 SE Asian countries, helping close a HK$7.5M Malaysian project and coordinate a separate HK$32M five-year framework agreement. Organized brand events in Hong Kong and Kuala Lumpur with 150+ C-level attendees. Coordinated a Hong Kong Science Park application and helped secure a Hong Kong–Shenzhen innovation park tenancy.",
     tags: ["AI Strategy", "Vendor Management", "Market Expansion", "SE Asia"],
   },
   {
@@ -67,7 +67,7 @@ export const timeline = [
     role: "Senior Sourcing Manager (with McKinsey)",
     company: "SK Group × McKinsey & Company (Seoul)",
     description:
-      "Seconded to SK Group alongside McKinsey to drive strategic sourcing transformation. Managed $10–40M annual spend per category across PCBA, compressors, BLDC motors, die-casting, and more. The sourcing program reported a 20% annual cost reduction (KRW 10 billion). My scope covered PCBA, compressors and motors, with US$10–40 million in annual spend per category. Conducted on-site supplier validation and financial audits. Designed negotiation strategies with non-price levers (payment terms, capacity guarantees).",
+      "Worked alongside McKinsey on a strategic sourcing transformation for SK Group. The sourcing program reported a 20% annual cost reduction (KRW 10 billion). My scope covered PCBA, compressors and motors, with US$10–40 million in annual spend per category. Conducted on-site supplier validation and financial audits. Designed negotiation strategies with non-price levers (payment terms, capacity guarantees).",
     tags: ["Strategic Sourcing", "Negotiation", "Supplier Audit", "Consulting"],
   },
   {
@@ -187,7 +187,7 @@ export const projects = [
     title: "₩10B Annual Cost Reduction",
     period: "2019 · SK Group × McKinsey",
     summary:
-      "Seconded to SK Group alongside McKinsey to transform strategic sourcing across PCBA, compressors, BLDC motors, die-casting, and mechanical parts.",
+      "Worked alongside McKinsey on strategic sourcing for SK Group across PCBA, compressors, BLDC motors, die-casting, and mechanical parts.",
     highlights: [
       "Achieved 20% annual cost reduction totaling ₩10B KRW",
       "Managed $10–40M annual spend per category with 20–30% savings targets",
