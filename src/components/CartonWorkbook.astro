@@ -24,6 +24,17 @@ const zh = locale === "zh-hant"
       formula: "The workbook converts dimensions from millimeters to centimeters before applying its paper-price input of 0.4551 and the formula coefficients. It converts the modeled USD result to THB at 31.5 THB per USD.",
       finding: "The first three negotiated prices were 4.7–5.5% below the modeled benchmark. The fourth was 14.79% above it. Its initial quote was THB 45.00, the negotiated price was THB 39.60, and the previous price was THB 26.46. That is a 49.66% increase over the previous price despite the reduction from the initial quote."
     };
+const comparisonRows = [
+  ["A", "3,500", "19.00", "16.00", "+18.75%", "0.4315", "13.59"],
+  ["B", "4,000", "20.00", "16.00", "+25.00%", "0.4516", "14.23"],
+  ["C", "4,000", "22.00", "—", "—", "0.4717", "14.86"],
+  ["D", "2,500", "36.00", "—", "—", "—", "—"],
+];
+const comparison = locale === "zh-hant"
+  ? ["交叉報價與數量", "料號代碼", "數量（只）", "供應商 B 新報價（THB）", "供應商 B 原報價（THB）", "供應商 B 調幅", "供應商 C（USD）", "供應商 C（THB）", "四項產品合計 14,000 只。工作表將其他來源的報價一併比較，並建議就高用量料號取得兩家供應商的報價。破折號表示原表沒有可比數值。"]
+  : locale === "zh-hans"
+  ? ["交叉报价与数量", "料号代号", "数量（只）", "供应商 B 新报价（THB）", "供应商 B 原报价（THB）", "供应商 B 涨幅", "供应商 C（USD）", "供应商 C（THB）", "四款产品合计 14,000 只。工作簿一并比较了其他来源的报价，并建议就用量较高的料号取得两家供应商的报价。破折号表示原表没有可比数据。"]
+  : ["Cross-supplier quotes and volumes", "Item code", "Volume (units)", "Supplier B new (THB)", "Supplier B previous (THB)", "Supplier B change", "Supplier C (USD)", "Supplier C (THB)", "The four items totaled 14,000 units. The workbook compared other quotes and recommended obtaining two quotes for the higher-volume items. A dash indicates no comparable value in the original sheet."];
 const rows = [
   ["A · 498 × 298 × 220", "20.60", "15.98", "25.00", "19.47", "+21.84%", "−5.50%"],
   ["B · 498 × 298 × 244", "21.51", "16.31", "24.00", "20.35", "+24.79%", "−5.37%"],
@@ -47,4 +58,14 @@ const rows = [
 × 2 × 0.4551 × 1.55 ÷ 10,000
 A = USD 0.65406 × 31.5 = THB 20.60</code></pre>
   <p>{zh.finding}</p>
+  <figure class="case-visual">
+    <div class="case-visual-scroll" tabindex="0" role="region" aria-label={comparison[0]}>
+      <table>
+        <caption>{comparison[0]}</caption>
+        <thead><tr>{comparison.slice(1, 8).map(label => <th scope="col">{label}</th>)}</tr></thead>
+        <tbody>{comparisonRows.map(row => <tr><th scope="row">{row[0]}</th>{row.slice(1).map(value => <td>{value}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+    <figcaption>{comparison[8]}</figcaption>
+  </figure>
 </section>
