@@ -37,7 +37,7 @@ export const workDetails: Record<string, [string, string][]> = {
       "I separated local motion, voice and cloud conversation into distinct requirements. Latency, synchronization and noise were explicit evaluation criteria."
     ],
     [
-      "First-generation scope",
+      "Product scope",
       "The proposal set target segments and priority scenarios and included requirements for device updates and estimates for after-sales costs. The milestone reached was product definition: scope, priority scenarios, engineering requirements and after-sales planning. The materials here do not establish a completed pilot or commercial launch."
     ]
   ],

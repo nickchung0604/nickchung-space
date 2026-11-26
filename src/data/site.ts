@@ -11,7 +11,7 @@ export const site = {
   profileImage: "/profile.jpg",
   current: {
     role: "Product Lead — Phantova Technology · Venus",
-    desc: "Led first-generation product definition for Venus, an embodied AI hardware concept. Previously advised on an AI agent initiative for public-sector use in Hong Kong and SE Asia market expansion — applying 20 years of supply chain and operations expertise to AI-driven products.",
+    desc: "Led product definition for Venus, a high-fidelity companion robot. Previously advised on an AI agent initiative for public-sector use in Hong Kong and SE Asia market expansion — applying 20 years of supply chain and operations expertise to AI-driven products.",
   },
 };
 
@@ -43,7 +43,7 @@ export const timeline = [
     role: "Product Lead",
     company: "Phantova Technology · Venus",
     description:
-      "Led first-generation product definition, user research and cross-functional requirements for embodied AI hardware.",
+      "Led product definition, user research and cross-functional requirements for Venus, a high-fidelity companion robot.",
     tags: ["AI Product", "Hardware", "Go-to-Market"],
   },
   {
