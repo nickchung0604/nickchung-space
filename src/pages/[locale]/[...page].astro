@@ -15,14 +15,14 @@ export function getStaticPaths() {
 const { locale, page = "" } = Astro.params;
 const isTraditional = locale === "zh-hant";
 const copy = isTraditional ? {
-  title:"供應鏈與採購｜團隊領導｜AI 產品開發", intro:"我制定供應商策略、帶領跨部門團隊推動營運改善，並把 AI 硬體構想轉成可開發、可驗收的產品規格。",
+  title:"我把產品決策、跨部門團隊與供應商串起來，讓構想能真正交付。", intro:"我制定供應商策略、帶領跨部門團隊推動營運改善，並把 AI 硬體構想轉成可開發、可驗收的產品規格。",
   work:"精選案例", about:"關於我", contact:"聯絡方式", cv:"下載英文履歷", profile:"職涯概覽",
   areas:["供應鏈與採購","管理與領導","AI 與科技"],
   browse:"依專業領域瀏覽案例", count:"篇案例", back:"返回精選案例",
   context:"業務背景", decisions:"我的角色與判斷", outcome:"成果", visual:"工作方法圖解",
   roles:["供應鏈暨專案管理總監","全球採購經理","Venus 產品負責人","供應鏈經理","供應鏈經理","全球採購經理","資深採購經理","專案總監／顧問","創辦人","採購總監"],
 } : {
-  title:"供应链与采购｜团队管理｜AI 产品开发", intro:"我制定供应商策略、带领跨部门团队推进运营改进，并把 AI 硬件构想转化为可开发、可验收的产品需求。",
+  title:"我让产品决策、跨部门团队和供应商协同起来，把构想变成可交付的成果。", intro:"我制定供应商策略、带领跨部门团队推进运营改进，并把 AI 硬件构想转化为可开发、可验收的产品需求。",
   work:"精选案例", about:"关于我", contact:"联系方式", cv:"下载英文简历", profile:"职业经历",
   areas:["供应链与采购","管理与领导","AI 与技术"],
   browse:"按专业领域浏览案例", count:"篇案例", back:"返回精选案例",
