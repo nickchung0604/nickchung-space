@@ -1,0 +1,50 @@
+---
+interface Props { locale?: string }
+const { locale = "en" } = Astro.props;
+const zh = locale === "zh-hant"
+  ? {
+      title: "2012 年紙箱報價複核｜Excel 原始數值",
+      intro: "依 2012 年試算表重製，尺寸為毫米，價格為每只紙箱。四個料號依原表順序列為 A–D。",
+      headers: ["尺寸（mm）", "標準價（THB）", "原單價（THB）", "初報價（THB）", "三輪議價後（THB）", "較原價", "較標準價"],
+      formula: "試算表先將長、寬、高由毫米換算為公分，再套用紙價 0.4551 和表中的係數。標準價以 31.5 泰銖兌 1 美元換算。",
+      finding: "前三項議價後低於模型標準價約 4.7%–5.5%，第四項卻高出 14.79%。但第四項初報 45 泰銖、議價後 39.60 泰銖，較原價 26.46 泰銖仍高 49.66%。這個差異就是為什麼要分開看初報價、議價結果和模型標準價。"
+    }
+  : locale === "zh-hans"
+  ? {
+      title: "2012 年纸箱报价复核｜Excel 原始数值",
+      intro: "按 2012 年工作簿重制，尺寸为毫米，价格为每只纸箱。四个料号按原表顺序标为 A–D。",
+      headers: ["尺寸（mm）", "标准价（THB）", "原单价（THB）", "初始报价（THB）", "三轮谈判后（THB）", "较原价", "较标准价"],
+      formula: "工作簿先将长、宽、高由毫米换算成厘米，再代入纸价 0.4551 和表内系数。标准价按 1 美元兑 31.5 泰铢换算。",
+      finding: "前三项谈判后的价格比模型标准价低约 4.7%–5.5%，第四项却高出 14.79%。第四项初报 45 泰铢、谈判后为 39.60 泰铢，但仍比原价 26.46 泰铢高 49.66%。因此单看谈判降下来的金额，无法判断最终价格是否合理。"
+    }
+  : {
+      title: "2012 carton quotation review — figures from the workbook",
+      intro: "Recreated from the 2012 Excel workbook. Dimensions are in millimeters and prices are per carton. The four original rows are shown in order as A–D.",
+      headers: ["Dimensions (mm)", "Modeled price (THB)", "Previous price (THB)", "Initial quote (THB)", "After three rounds (THB)", "vs. previous", "vs. modeled"],
+      formula: "The workbook converts dimensions from millimeters to centimeters before applying its paper-price input of 0.4551 and the formula coefficients. It converts the modeled USD result to THB at 31.5 THB per USD.",
+      finding: "The first three negotiated prices were 4.7–5.5% below the modeled benchmark. The fourth was 14.79% above it. Its initial quote was THB 45.00, the negotiated price was THB 39.60, and the previous price was THB 26.46. That is a 49.66% increase over the previous price despite the reduction from the initial quote."
+    };
+const rows = [
+  ["A · 498 × 298 × 220", "20.60", "15.98", "25.00", "19.47", "+21.84%", "−5.50%"],
+  ["B · 498 × 298 × 244", "21.51", "16.31", "24.00", "20.35", "+24.79%", "−5.37%"],
+  ["C · 498 × 298 × 286", "23.08", "15.88", "25.50", "22.00", "+38.54%", "−4.70%"],
+  ["D · 600 × 500 × 145", "34.50", "26.46", "45.00", "39.60", "+49.66%", "+14.79%"],
+];
+---
+<section class="carton-workbook">
+  <h2>{zh.title}</h2>
+  <p>{zh.intro}</p>
+  <figure class="case-visual">
+    <div class="case-visual-scroll" tabindex="0" role="region" aria-label={zh.title}>
+      <table>
+        <thead><tr>{zh.headers.map(header => <th scope="col">{header}</th>)}</tr></thead>
+        <tbody>{rows.map(row => <tr><th scope="row">{row[0]}</th>{row.slice(1).map(value => <td>{value}</td>)}</tr>)}</tbody>
+      </table>
+    </div>
+  </figure>
+  <p>{zh.formula}</p>
+  <pre><code>(L/10 + W/10 + 5) × (W/10 + H/10 + 3)
+× 2 × 0.4551 × 1.55 ÷ 10,000
+A = USD 0.65406 × 31.5 = THB 20.60</code></pre>
+  <p>{zh.finding}</p>
+</section>

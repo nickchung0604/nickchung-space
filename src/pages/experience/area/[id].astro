@@ -1,11 +1,12 @@
 ---
+import { skills } from "../../../data/site";
 import Layout from "../../../layouts/Layout.astro";
 import WorkCard from "../../../components/WorkCard.astro";
 import { work, workCopy } from "../../../data/work";
-import { capabilities } from "../../../data/work-details";
+import { capabilities, legacyCapabilities } from "../../../data/work-details";
 import { capabilityDescriptions } from "../../../data/work-visuals";
 export function getStaticPaths() {
-  return capabilities.map(area => ({ params: { id: area.id }, props: { area } }));
+  return [...capabilities.map(area => ({ id: area.id, area })), ...legacyCapabilities.map(link => ({ id: link.id, area: capabilities.find(area => area.id === link.target)! }))].map(({ id, area }) => ({ params: { id }, props: { area } }));
 }
 const { area } = Astro.props;
 const cases = area.slugs.map(slug => {
@@ -20,9 +21,10 @@ const cases = area.slugs.map(slug => {
       <a href="/experience/">{workCopy.back}</a>
       <h1>{area.title}</h1>
       <p>{capabilityDescriptions[area.id]}</p>
-      <div class="work-grid area-cases">
+      <section><h2>Capabilities</h2><ul class="capability-skills">{skills[area.skillIndex].items.map(skill => <li>{skill}</li>)}</ul></section>
+      <section><h2>Case studies</h2><div class="work-grid area-cases">
         {cases.map(item => <WorkCard item={item} />)}
-      </div>
+      </div></section>
     </div>
   </div>
 </Layout>

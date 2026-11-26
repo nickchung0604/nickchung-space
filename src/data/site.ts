@@ -1,8 +1,8 @@
 export const site = {
   name: "Nick Chung",
-  title: "Supply Chain & Strategic Sourcing Leader",
+  title: "Supply Chain & Procurement | Team Leadership & AI Product Development",
   tagline:
-    "I lead procurement, supplier development and cross-functional programs across manufacturing and technology.",
+    "I build supplier strategies, lead cross-functional teams through operational change, and turn AI hardware concepts into product requirements.",
   email: "nickchung0604@163.com",
   linkedin: "https://www.linkedin.com/in/nichung",
   github: "https://github.com/nickchung0604",

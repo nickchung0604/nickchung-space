@@ -1,9 +1,7 @@
 export const capabilityDescriptions: Record<string, string> = {
-  "supply-chain": "Supplier continuity, operating processes and quality handoffs.",
-  "procurement": "Sourcing strategy, supplier qualification, cost models and financial recovery.",
-  "project-management": "Requirements, workstreams and coordination across teams and partners.",
-  "product": "Hardware and digital product definition, from research to scope.",
-  "people-management": "Team design, cross-functional leadership and operating routines."
+  "supply-chain": "Strategic sourcing, supplier development, cost engineering and supply operations.",
+  "product": "AI advisory, hardware product definition and mixed-reality product development.",
+  "people-management": "Team building, cross-functional delivery and operating processes."
 };
 
 interface CaseVisual {

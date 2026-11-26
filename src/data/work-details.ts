@@ -52,7 +52,7 @@ export const workDetails: Record<string, [string, string][]> = {
     ],
     [
       "From assessment to allocation",
-      "The deck distinguished shares to retain from shares to move. The output was a recommendation by category, with allocation percentages kept private."
+      "For cables, the deck proposed keeping shares for vendors with unique qualified parts or specialized support, while shifting a portion toward vendors that performed better on responsiveness and stock buffering. That was an allocation recommendation, with no claimed implementation result."
     ]
   ],
   "delta-carton-cost-analysis": [
@@ -66,13 +66,13 @@ export const workDetails: Record<string, [string, string][]> = {
     ],
     [
       "Documented decision",
-      "The workbook recorded whether the adjustment was reasonable and pointed to the supporting comparables. The deliverable was the price review and its basis."
+      "The workbook separated the original price, initial quote, price confirmed after three rounds of negotiation, and model benchmark. Three items finished below the benchmark, while one remained above it. Its conclusion also considered comparable supplier prices and the volume of the items."
     ]
   ],
   "dell-supplier-billing-accuracy": [
     [
       "Scope of the project",
-      "The recovery concerned supplier invoices and payments. It is a different measure from the 2016 procurement cost reduction reported in the value-engineering case."
+      "The US$4M figure is a recovery of past overpayments. The records used here establish the recovered amount and recognition; they do not establish the exception rules, recovery schedule, or future control design."
     ],
     [
       "Recognition",
@@ -124,18 +124,10 @@ export const workDetails: Record<string, [string, string][]> = {
 export const capabilities = [
   {
     "id": "supply-chain",
-    "title": "Supply Chain Operations",
+    "title": "Supply Chain & Procurement",
+    "skillIndex": 0,
     "slugs": [
       "footprint-asia",
-      "delta-supplier-strategy",
-      "sk-supplier-qualification",
-      "zebra-procurement-team"
-    ]
-  },
-  {
-    "id": "procurement",
-    "title": "Strategic Sourcing & Procurement",
-    "slugs": [
       "dell-cost-reduction",
       "dell-supplier-billing-accuracy",
       "delta-supplier-strategy",
@@ -145,30 +137,29 @@ export const capabilities = [
     ]
   },
   {
-    "id": "project-management",
-    "title": "Project Management",
+    "id": "people-management",
+    "title": "Management & Leadership",
+    "skillIndex": 1,
     "slugs": [
+      "footprint-asia",
+      "zebra-procurement-team",
       "bcci-ai-partnership",
-      "venus-product-definition",
-      "footprint-asia"
-    ]
-  },
-  {
-    "id": "product",
-    "title": "Product Development",
-    "slugs": [
-      "venus-product-definition",
       "intelove-product-development"
     ]
   },
   {
-    "id": "people-management",
-    "title": "People Management",
+    "id": "product",
+    "title": "AI & Technology",
+    "skillIndex": 2,
     "slugs": [
-      "footprint-asia",
-      "zebra-procurement-team",
+      "venus-product-definition",
+      "bcci-ai-partnership",
       "intelove-product-development"
     ]
   }
 ];
 
+export const legacyCapabilities = [
+  { id: "procurement", target: "supply-chain" },
+  { id: "project-management", target: "people-management" },
+];

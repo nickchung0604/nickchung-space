@@ -1,28 +1,30 @@
 ---
+import { traditionalSkills, simplifiedSkills } from "../../data/zh-skills";
+import CartonWorkbook from "../../components/CartonWorkbook.astro";
 import Layout from "../../layouts/Layout.astro";
 import { work, featuredWork } from "../../data/work";
-import { capabilities } from "../../data/work-details";
+import { capabilities, legacyCapabilities } from "../../data/work-details";
 import { simplified } from "../../data/zh-content";
 import { traditional } from "../../data/zh-hant-content";
 import { site } from "../../data/site";
 
 export function getStaticPaths() {
-  const pages = ["", "about", "contact", "experience", ...capabilities.map(area => "experience/area/" + area.id), ...work.map(item => "experience/" + item.slug)];
+  const pages = ["", "about", "contact", "experience", ...[...capabilities, ...legacyCapabilities].map(area => "experience/area/" + area.id), ...work.map(item => "experience/" + item.slug)];
   return ["zh-hans", "zh-hant"].flatMap(locale => pages.map(page => ({ params: { locale, page: page || undefined } })));
 }
 const { locale, page = "" } = Astro.params;
 const isTraditional = locale === "zh-hant";
 const copy = isTraditional ? {
-  title:"供應鏈與策略採購主管", intro:"橫跨製造與科技產業，帶領採購、供應商開發及跨部門專案落地。",
+  title:"供應鏈與採購｜團隊領導｜AI 產品開發", intro:"我制定供應商策略、帶領跨部門團隊推動營運改善，並把 AI 硬體構想轉成可開發、可驗收的產品規格。",
   work:"精選案例", about:"關於我", contact:"聯絡方式", cv:"下載英文履歷", profile:"職涯概覽",
-  areas:["供應鏈營運","策略尋源與採購","專案管理","產品開發","團隊管理"],
+  areas:["供應鏈與採購","管理與領導","AI 與科技"],
   browse:"依專業領域瀏覽案例", count:"篇案例", back:"返回精選案例",
   context:"業務背景", decisions:"我的角色與判斷", outcome:"成果", visual:"工作方法圖解",
   roles:["供應鏈暨專案管理總監","全球採購經理","Venus 產品負責人","供應鏈經理","供應鏈經理","全球採購經理","資深採購經理","專案總監／顧問","創辦人","採購總監"],
 } : {
-  title:"供应链与战略采购负责人", intro:"在制造和科技行业带领采购、供应商开发及跨部门项目交付。",
+  title:"供应链与采购｜团队管理｜AI 产品开发", intro:"我制定供应商策略、带领跨部门团队推进运营改进，并把 AI 硬件构想转化为可开发、可验收的产品需求。",
   work:"精选案例", about:"关于我", contact:"联系方式", cv:"下载英文简历", profile:"职业经历",
-  areas:["供应链运营","战略寻源与采购","项目管理","产品开发","团队管理"],
+  areas:["供应链与采购","管理与领导","AI 与技术"],
   browse:"按专业领域浏览案例", count:"篇案例", back:"返回精选案例",
   context:"业务背景", decisions:"我的职责和关键判断", outcome:"成果", visual:"关键做法图解",
   roles:["供应链与项目管理总监","全球采购经理","Venus 产品负责人","供应链经理","供应链经理","全球采购经理","高级采购经理","项目总监／顾问","创始人","采购总监"],
@@ -31,7 +33,8 @@ const entries = isTraditional ? traditional : simplified;
 const route = (suffix = "") => "/" + locale + "/" + (suffix ? suffix + "/" : "");
 const areaPath = (id: string) => "experience/area/" + id;
 const casePath = (slug: string) => "experience/" + slug;
-const areaIndex = capabilities.findIndex(area => areaPath(area.id) === page);
+const legacyArea = legacyCapabilities.find(area => areaPath(area.id) === page);
+const areaIndex = capabilities.findIndex(area => areaPath(area.id) === page || area.id === legacyArea?.target);
 const itemIndex = work.findIndex(item => casePath(item.slug) === page);
 const item = work[itemIndex];
 const current = item && entries[item.slug];
@@ -51,17 +54,18 @@ const title = current?.[0] ?? (area ? copy.areas[areaIndex] : page === "contact"
     {page === "experience" && <><p>{copy.browse}</p><div class="capability-grid">
       {capabilities.map((area, index) => <a class="capability-card" href={route(areaPath(area.id))}><h2>{copy.areas[index]}</h2><span>{area.slugs.length} {copy.count}</span></a>)}
     </div></>}
-    {(area || !page) && <>{!page && <h2>{copy.work}</h2>}<div class="work-grid area-cases">
+    {area && <section><h2>{isTraditional ? "能力細項" : "能力细项"}</h2><ul class="capability-skills">{(isTraditional ? traditionalSkills : simplifiedSkills)[areaIndex].map(skill => <li>{skill}</li>)}</ul></section>}
+    {(area || !page) && <><h2>{copy.work}</h2><div class="work-grid area-cases">
       {cards.map(item => <article class="work-card"><p class="work-meta">{item.company} · {item.period}</p>
         <h2><a href={route(casePath(item.slug))}>{entries[item.slug][0]}</a></h2><strong>{entries[item.slug][1]}</strong><p>{entries[item.slug][2]}</p></article>)}
     </div></>}
     {current && <><p class="work-meta">{item.company} · {item.period} · {copy.roles[itemIndex]}</p><p class="case-result">{current[1]}</p><p>{current[2]}</p>
       <section><h2>{copy.context}</h2><p>{current[3]}</p></section>
       <section><h2>{copy.decisions}</h2><p>{current[4]}</p></section>
-      <section><h2>{copy.visual}</h2><dl class="case-details">{current[6].map(row => {
+      {item.slug === "delta-carton-cost-analysis" ? <CartonWorkbook locale={locale} /> : <section><h2>{copy.visual}</h2><dl class="case-details">{current[6].map(row => {
         const [heading, ...detail] = row.split("｜");
         return <div><dt>{heading}</dt><dd>{detail.join(" · ")}</dd></div>;
-      })}</dl></section>
+      })}</dl></section>}
       <section><h2>{copy.outcome}</h2><p>{current[5]}</p></section>
       {item.evidence.length > 0 && <section><h2>{isTraditional ? "工作示意圖" : "工作示意图"}</h2>
         {item.evidence.map(sample => <figure class="case-visual">
