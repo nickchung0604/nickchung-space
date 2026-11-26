@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import WorkCard from "../../components/WorkCard.astro";
 import { work, workCopy } from "../../data/work";
+const categories = [...new Set(work.map(item => item.category))];
 const chronological = [...work].sort((a, b) => b.year - a.year);
 ---
 <Layout title={workCopy.title} description={workCopy.description}>
@@ -15,9 +16,12 @@ const chronological = [...work].sort((a, b) => b.year - a.year);
       </nav>
       <section id="capability">
         <h2>{workCopy.byCapability}</h2>
-        <div class="work-grid">
-          {work.map(item => <div><p class="work-meta">{item.category}</p><WorkCard item={item} /></div>)}
-        </div>
+        {categories.map(category => <div class="work-category">
+          <h3>{category}</h3>
+          <div class="work-grid">
+            {work.filter(item => item.category === category).map(item => <WorkCard item={item} />)}
+          </div>
+        </div>)}
       </section>
       <section id="date">
         <h2>{workCopy.byDate}</h2>

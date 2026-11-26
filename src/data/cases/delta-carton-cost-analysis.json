@@ -1,0 +1,20 @@
+{
+  "slug": "delta-carton-cost-analysis",
+  "company": "Delta Electronics",
+  "period": "Sep 2012",
+  "year": 2012,
+  "category": "Strategic Sourcing",
+  "role": "Supply Chain Manager",
+  "title": "Checking carton quotations with a material cost model",
+  "result": "A repeatable check for supplier price changes",
+  "summary": "Used an Excel cost model and comparisons across similarly sized carton items to evaluate whether a quoted adjustment was reasonable.",
+  "context": "A price adjustment needs to be assessed against the carton specification and material inputs. Comparing unit quotations alone can miss differences between items.",
+  "decisions": "I used carton dimensions and material or paper price inputs to calculate a comparable cost and cross-checked the quoted adjustment against items of similar size.",
+  "outcome": "The workbook captured the calculation and recorded a judgment on whether the supplier's adjustment was reasonable based on comparable items.",
+  "evidence": [
+    {
+      "image": "/evidence/delta-carton-cost-analysis.svg",
+      "caption": "Portfolio illustration of the workbook’s review sequence. Commercial inputs are omitted."
+    }
+  ]
+}

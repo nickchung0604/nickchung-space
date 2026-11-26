@@ -1,0 +1,20 @@
+{
+  "slug": "delta-supplier-strategy",
+  "company": "Delta Electronics",
+  "period": "May 2012",
+  "year": 2012,
+  "category": "Strategic Sourcing",
+  "role": "Supply Chain Manager",
+  "title": "Turning supplier assessments into order allocation recommendations",
+  "result": "Order-share recommendations across three categories",
+  "summary": "Compared suppliers for cables, printed wiring boards and sheet metal using a TQRDC-style assessment, SWOT and industry analysis.",
+  "context": "The sourcing team needed a consistent way to judge when to maintain or change the order share of existing suppliers across categories.",
+  "decisions": "I reviewed suppliers across technology, quality, responsiveness, delivery and cost. I used SWOT and industry analysis to separate supplier-specific performance from market constraints, then considered where qualification or a limited set of alternatives constrained the allocation decision.",
+  "outcome": "The strategy deck documented proposed order shares by category and the rationale for maintaining or changing allocations.",
+  "evidence": [
+    {
+      "image": "/evidence/delta-supplier-strategy.svg",
+      "caption": "Portfolio illustration of the decision sequence documented in the 2012 strategy deck."
+    }
+  ]
+}
