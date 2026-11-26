@@ -1,0 +1,28 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import WorkCard from "../../../components/WorkCard.astro";
+import { work, workCopy } from "../../../data/work";
+import { capabilities } from "../../../data/work-details";
+import { capabilityDescriptions } from "../../../data/work-visuals";
+export function getStaticPaths() {
+  return capabilities.map(area => ({ params: { id: area.id }, props: { area } }));
+}
+const { area } = Astro.props;
+const cases = area.slugs.map(slug => {
+  const item = work.find(entry => entry.slug === slug);
+  if (!item) throw new Error(`Unknown case: ${slug}`);
+  return item;
+});
+---
+<Layout title={area.title} description={capabilityDescriptions[area.id]}>
+  <div class="portfolio-light">
+    <div class="container">
+      <a href="/experience/">{workCopy.back}</a>
+      <h1>{area.title}</h1>
+      <p>{capabilityDescriptions[area.id]}</p>
+      <div class="work-grid area-cases">
+        {cases.map(item => <WorkCard item={item} />)}
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,17 @@
+---
+import { caseVisuals } from "../data/work-visuals";
+const { slug } = Astro.props;
+const visual = caseVisuals[slug];
+---
+{visual && <figure class="case-visual">
+  <div class="case-visual-scroll" tabindex="0" role="region" aria-label={visual.title}>
+    <table>
+      <caption>{visual.title}</caption>
+      <thead><tr>{visual.columns.map(column => <th scope="col">{column}</th>)}</tr></thead>
+      <tbody>{visual.rows.map(row => <tr>{row.map((value, index) =>
+        index === 0 ? <th scope="row">{value}</th> : <td>{value}</td>
+      )}</tr>)}</tbody>
+    </table>
+  </div>
+  <figcaption>{visual.caption}</figcaption>
+</figure>}

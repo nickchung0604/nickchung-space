@@ -1,23 +1,33 @@
 ---
+import CaseVisual from "../../components/CaseVisual.astro";
 import Layout from "../../layouts/Layout.astro";
 import { work, workCopy } from "../../data/work";
+import { workDetails, capabilities } from "../../data/work-details";
 export function getStaticPaths() {
   return work.map(item => ({ params: { slug: item.slug }, props: { item } }));
 }
 const { item } = Astro.props;
+const details = workDetails[item.slug] ?? [];
 ---
 <Layout title={item.title} description={item.summary}>
   <article class="portfolio-light">
     <div class="container case-content">
       <a href="/experience/">{workCopy.back}</a>
-      <p class="work-meta">{item.company} · {item.period} · {item.category}</p>
+      <p class="work-meta">{item.company} · {item.period}</p>
       <h1>{item.title}</h1>
       <p class="case-result">{item.result}</p>
       <p><strong>{item.role}</strong></p>
       <p>{item.summary}</p>
       <section><h2>{workCopy.context}</h2><p>{item.context}</p></section>
       <section><h2>{workCopy.decisions}</h2><p>{item.decisions}</p></section>
+      {details.length > 0 && <section><h2>Project details</h2><dl class="case-details">
+        {details.map(([heading, text]) => <div><dt>{heading}</dt><dd>{text}</dd></div>)}
+      </dl></section>}
+      <CaseVisual slug={item.slug} />
       <section><h2>{workCopy.outcome}</h2><p>{item.outcome}</p></section>
+      <nav class="work-jump" aria-label="Related capabilities">
+        {capabilities.filter(area => area.slugs.includes(item.slug)).map(area => <a href={`/experience/area/${area.id}/`}>{area.title}</a>)}
+      </nav>
       {item.evidence.length > 0 && <section>
         <h2>{workCopy.evidence}</h2>
         {item.evidence.map(sample => <figure>

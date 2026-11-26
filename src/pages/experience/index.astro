@@ -1,34 +1,21 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import WorkCard from "../../components/WorkCard.astro";
-import { work, workCopy } from "../../data/work";
-const categories = [...new Set(work.map(item => item.category))];
-const chronological = [...work].sort((a, b) => b.year - a.year);
+import { workCopy } from "../../data/work";
+import { capabilities } from "../../data/work-details";
+import { capabilityDescriptions } from "../../data/work-visuals";
 ---
-<Layout title={workCopy.title} description={workCopy.description}>
+<Layout title={workCopy.title}>
   <div class="portfolio-light">
     <div class="container">
       <h1>{workCopy.title}</h1>
-      <p>{workCopy.description}</p>
-      <nav class="work-jump" aria-label="Browse selected work">
-        <a href="#capability">{workCopy.byCapability}</a>
-        <a href="#date">{workCopy.byDate}</a>
-      </nav>
-      <section id="capability">
-        <h2>{workCopy.byCapability}</h2>
-        {categories.map(category => <div class="work-category">
-          <h3>{category}</h3>
-          <div class="work-grid">
-            {work.filter(item => item.category === category).map(item => <WorkCard item={item} />)}
-          </div>
-        </div>)}
-      </section>
-      <section id="date">
-        <h2>{workCopy.byDate}</h2>
-        <ul class="work-dates">
-          {chronological.map(item => <li><span>{item.period}</span><a href={`/experience/${item.slug}/`}>{item.company} · {item.title}</a></li>)}
-        </ul>
-      </section>
+      <p>Explore my work by capability.</p>
+      <div class="capability-grid">
+        {capabilities.map(area => <a class="capability-card" href={`/experience/area/${area.id}/`}>
+          <h2>{area.title}</h2>
+          <p>{capabilityDescriptions[area.id]}</p>
+          <span>{area.slugs.length} case studies</span>
+        </a>)}
+      </div>
     </div>
   </div>
 </Layout>

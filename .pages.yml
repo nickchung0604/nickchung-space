@@ -268,3 +268,268 @@ content:
           - name: caption
             type: string
             required: true
+  - name: dell-supplier-billing-accuracy
+    label: Dell Technologies - Supplier Billing Accuracy
+    type: file
+    path: src/data/cases/dell-supplier-billing-accuracy.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true
+  - name: sk-supplier-qualification
+    label: SK Group × McKinsey - Senior Sourcing Manager
+    type: file
+    path: src/data/cases/sk-supplier-qualification.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true
+  - name: bcci-ai-partnership
+    label: BCCI - Project Director / Advisor
+    type: file
+    path: src/data/cases/bcci-ai-partnership.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true
+  - name: intelove-product-development
+    label: InteLove - Founder
+    type: file
+    path: src/data/cases/intelove-product-development.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true
+  - name: zebra-procurement-team
+    label: Zebra Tourism - Procurement Director
+    type: file
+    path: src/data/cases/zebra-procurement-team.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true

@@ -90,7 +90,7 @@ export const timeline = [
     role: "Global Procurement Manager",
     company: "Dell (Shanghai)",
     description:
-      "Managed $220M+ annual direct-material spend across 20+ desktop platforms. Drove 4.99% cost reduction in 2016 ($7.83M USD), averaging 1.25–2.20% annually in 2013–2015. Led VAVE initiatives: steel thinning ($1.3M), cable optimization ($0.3M), IC reclamation ($1.9M). Recovered $4M in overpayments. Received Greater China President Award (Q4 2015) — #1 cost reduction contributor. Also won Q3 2014 Winning Together (SBA), Q1 2015 Bronze (MSI Packaging), Q2 2015 On the Spot (Metal Part Cost Analysis).",
+      "Managed $220M+ annual direct-material spend across 20+ desktop platforms. Drove 4.99% cost reduction in 2016 ($7.83M USD), averaging 1.25–2.20% annually in 2013–2015. Led VAVE initiatives: steel thinning ($1.3M), cable optimization ($0.3M), IC reclamation ($1.9M). Recovered $4M in overpayments. Received the Greater China President Award as part of a team (Q4 2015). Also won Q3 2014 Winning Together (SBA), Q1 2015 Bronze (MSI Packaging), Q2 2015 On the Spot (Metal Part Cost Analysis).",
     tags: ["Direct Materials", "VAVE", "Cost Reduction", "President's Award"],
   },
   {
@@ -251,7 +251,7 @@ export const awards = [
     title: "Greater China President Award",
     org: "Dell",
     year: "2015 Q4",
-    note: "#1 cost reduction contributor in Greater China",
+    note: "Team award",
   },
   {
     title: "On the Spot Award — Metal Part Cost Analysis",

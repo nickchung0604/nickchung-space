@@ -131,3 +131,23 @@ img {
 }
 .work-category + .work-category { margin-top: 1.5rem; }
 .work-category > h3 { margin-bottom: .6rem; color: #405975; }
+.work-category { scroll-margin-top: 8rem; }
+.case-details { display: grid; gap: 1rem; margin: 0; }
+.case-details > div { background: white; border-left: 3px solid #8eb4db; padding: .85rem 1rem; }
+.case-details dt { font-weight: 700; margin-bottom: .25rem; }
+.case-details dd { margin: 0; }
+.capability-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin-top: 2rem; }
+.portfolio-light .capability-card { display: block; padding: 1.5rem; background: white; border: 1px solid #cfdbea; border-radius: .65rem; color: #172b42; text-decoration: none; }
+.capability-card h2 { color: #174f8b; }
+.capability-card:hover h2, .capability-card:focus-visible h2 { text-decoration: underline; }
+.capability-card span { display: block; color: #405975; margin-top: .75rem; font-weight: 600; }
+.area-cases { margin-top: 2rem; grid-template-columns: repeat(2,minmax(0,1fr)); }
+.case-visual { margin: 2rem 0; }
+.case-visual-scroll { overflow-x: auto; border: 1px solid #cfdbea; border-radius: .55rem; }
+.case-visual table { border-collapse: collapse; width: 100%; min-width: 28rem; background: white; }
+.case-visual caption { text-align: left; font-weight: 700; padding: .9rem; background: #10253c; color: white; }
+.case-visual th, .case-visual td { padding: .7rem .9rem; text-align: left; vertical-align: top; border-bottom: 1px solid #cfdbea; }
+.case-visual thead th { background: #eaf1fa; }
+.case-visual th[scope="row"] { font-weight: 600; }
+.case-visual figcaption { margin-top: .5rem; color: #405975; }
+@media (max-width: 720px) { .capability-grid, .area-cases { grid-template-columns: 1fr; } }
