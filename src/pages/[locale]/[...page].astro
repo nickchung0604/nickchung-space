@@ -1,0 +1,80 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { work, featuredWork } from "../../data/work";
+import { capabilities } from "../../data/work-details";
+import { simplified } from "../../data/zh-content";
+import { traditional } from "../../data/zh-hant-content";
+import { site } from "../../data/site";
+
+export function getStaticPaths() {
+  const pages = ["", "about", "contact", "experience", ...capabilities.map(area => "experience/area/" + area.id), ...work.map(item => "experience/" + item.slug)];
+  return ["zh-hans", "zh-hant"].flatMap(locale => pages.map(page => ({ params: { locale, page: page || undefined } })));
+}
+const { locale, page = "" } = Astro.params;
+const isTraditional = locale === "zh-hant";
+const copy = isTraditional ? {
+  title:"供應鏈與策略採購主管", intro:"橫跨製造與科技產業，帶領採購、供應商開發及跨部門專案落地。",
+  work:"精選案例", about:"關於我", contact:"聯絡方式", cv:"下載英文履歷", profile:"職涯概覽",
+  areas:["供應鏈營運","策略尋源與採購","專案管理","產品開發","團隊管理"],
+  browse:"依專業領域瀏覽案例", count:"篇案例", back:"返回精選案例",
+  context:"業務背景", decisions:"我的角色與判斷", outcome:"成果", visual:"工作方法圖解",
+  roles:["供應鏈暨專案管理總監","全球採購經理","Venus 產品負責人","供應鏈經理","供應鏈經理","全球採購經理","資深採購經理","專案總監／顧問","創辦人","採購總監"],
+} : {
+  title:"供应链与战略采购负责人", intro:"在制造和科技行业带领采购、供应商开发及跨部门项目交付。",
+  work:"精选案例", about:"关于我", contact:"联系方式", cv:"下载英文简历", profile:"职业经历",
+  areas:["供应链运营","战略寻源与采购","项目管理","产品开发","团队管理"],
+  browse:"按专业领域浏览案例", count:"篇案例", back:"返回精选案例",
+  context:"业务背景", decisions:"我的职责和关键判断", outcome:"成果", visual:"关键做法图解",
+  roles:["供应链与项目管理总监","全球采购经理","Venus 产品负责人","供应链经理","供应链经理","全球采购经理","高级采购经理","项目总监／顾问","创始人","采购总监"],
+};
+const entries = isTraditional ? traditional : simplified;
+const route = (suffix = "") => "/" + locale + "/" + (suffix ? suffix + "/" : "");
+const areaPath = (id: string) => "experience/area/" + id;
+const casePath = (slug: string) => "experience/" + slug;
+const areaIndex = capabilities.findIndex(area => areaPath(area.id) === page);
+const itemIndex = work.findIndex(item => casePath(item.slug) === page);
+const item = work[itemIndex];
+const current = item && entries[item.slug];
+const area = capabilities[areaIndex];
+const cards = area ? area.slugs.map(slug => work.find(item => item.slug === slug)!) : featuredWork;
+const title = current?.[0] ?? (area ? copy.areas[areaIndex] : page === "contact" ? copy.contact : page === "about" ? copy.about : page === "experience" ? copy.work : copy.title);
+---
+<Layout title={title} description={current?.[2] ?? copy.intro} locale={locale} pagePath={page}>
+  {page === "" && <section class="portfolio-hero"><div class="container portfolio-hero-inner">
+    <div><h1>{isTraditional ? "鐘煒凱" : "钟炜凯"}</h1><p class="portfolio-title">{copy.title}</p><p>{copy.intro}</p>
+      <div class="portfolio-actions"><a href={route("experience")}>{copy.work}</a><a href="/nick-chung-cv.html" download>{copy.cv}</a><a href={site.linkedin}>LinkedIn</a></div>
+    </div><img src={site.profileImage} width="220" height="220" alt="Nick Chung" />
+  </div></section>}
+  <div class="portfolio-light"><div class:list={["container", {"case-content": Boolean(current)}]}>
+    {(area || current) && <a href={route("experience")}>{copy.back}</a>}
+    {page && <h1>{title}</h1>}
+    {page === "experience" && <><p>{copy.browse}</p><div class="capability-grid">
+      {capabilities.map((area, index) => <a class="capability-card" href={route(areaPath(area.id))}><h2>{copy.areas[index]}</h2><span>{area.slugs.length} {copy.count}</span></a>)}
+    </div></>}
+    {(area || !page) && <>{!page && <h2>{copy.work}</h2>}<div class="work-grid area-cases">
+      {cards.map(item => <article class="work-card"><p class="work-meta">{item.company} · {item.period}</p>
+        <h2><a href={route(casePath(item.slug))}>{entries[item.slug][0]}</a></h2><strong>{entries[item.slug][1]}</strong><p>{entries[item.slug][2]}</p></article>)}
+    </div></>}
+    {current && <><p class="work-meta">{item.company} · {item.period} · {copy.roles[itemIndex]}</p><p class="case-result">{current[1]}</p><p>{current[2]}</p>
+      <section><h2>{copy.context}</h2><p>{current[3]}</p></section>
+      <section><h2>{copy.decisions}</h2><p>{current[4]}</p></section>
+      <section><h2>{copy.visual}</h2><dl class="case-details">{current[6].map(row => {
+        const [heading, ...detail] = row.split("｜");
+        return <div><dt>{heading}</dt><dd>{detail.join(" · ")}</dd></div>;
+      })}</dl></section>
+      <section><h2>{copy.outcome}</h2><p>{current[5]}</p></section>
+      {item.evidence.length > 0 && <section><h2>{isTraditional ? "工作示意圖" : "工作示意图"}</h2>
+        {item.evidence.map(sample => <figure class="case-visual">
+          <a href={sample.image} target="_blank" rel="noopener">
+            <img src={sample.image} alt={isTraditional ? "開啟案例示意圖" : "打开案例示意图"} loading="lazy" style="display:block;width:100%;height:auto;" />
+          </a>
+        </figure>)}
+      </section>}
+      <nav class="work-jump">{capabilities.map((area,index) => area.slugs.includes(item.slug) && <a href={route(areaPath(area.id))}>{copy.areas[index]}</a>)}</nav>
+    </>}
+    {page === "about" && <><p>{copy.intro}</p><section><h2>{copy.profile}</h2><ul class="work-dates">
+      {[...work].sort((a,b) => b.year - a.year).map(item => <li><span>{item.period} · {item.company}</span><a href={route(casePath(item.slug))}>{entries[item.slug][0]}</a></li>)}
+    </ul></section></>}
+    {page === "contact" && <p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.linkedin}>LinkedIn</a></p>}
+  </div></div>
+</Layout>

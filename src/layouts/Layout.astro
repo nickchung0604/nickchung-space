@@ -5,15 +5,30 @@ import { site, nav } from "../data/site";
 interface Props {
   title?: string;
   description?: string;
+  locale?: string;
+  pagePath?: string;
 }
 
-const { title, description } = Astro.props;
-const pageTitle = title ? `${title} · ${site.name}` : `${site.name} — ${site.title}`;
+const { title, description, locale = "en", pagePath = Astro.url.pathname.replace(/^\/|\/$/g, "") } = Astro.props;
+const language = locale === "zh-hant" ? "zh-Hant" : locale === "zh-hans" ? "zh-Hans" : "en";
+const languages = [
+  { id: "en", label: "English" },
+  { id: "zh-hant", label: "繁體中文" },
+  { id: "zh-hans", label: "简体中文" },
+];
+const localHref = (id: string, page = "") => "/" + [id === "en" ? "" : id, page].filter(Boolean).join("/") + ((id !== "en" || page) ? "/" : "");
+const links = locale === "en" ? nav : [
+  { label: locale === "zh-hant" ? "關於我" : "关于我", href: localHref(locale, "about") },
+  { label: locale === "zh-hant" ? "精選案例" : "精选案例", href: localHref(locale, "experience") },
+  { label: locale === "zh-hant" ? "聯絡方式" : "联系方式", href: localHref(locale, "contact") },
+];
+const displayName = locale === "zh-hant" ? "鐘煒凱" : locale === "zh-hans" ? "钟炜凯" : site.name;
+const pageTitle = title ? `${title} · ${displayName}` : `${displayName} — ${site.title}`;
 const pageDescription = description || site.tagline;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={language}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,15 +39,19 @@ const pageDescription = description || site.tagline;
     <meta property="og:type" content="website" />
     <meta property="og:image" content={site.profileImage} />
     <title>{pageTitle}</title>
+    {languages.map(item => <link rel="alternate" hreflang={item.id === "zh-hant" ? "zh-Hant" : item.id === "zh-hans" ? "zh-Hans" : "en"} href={new URL(localHref(item.id, pagePath), Astro.site ?? Astro.url).href} />)}
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="/" class="logo">{site.name}</a>
+        <a href={localHref(locale)} class="logo">{displayName}</a>
         <nav class="nav">
-          {nav.map((item) => (
+          {links.map((item) => (
             <a href={item.href}>{item.label}</a>
           ))}
+        </nav>
+        <nav class="locale-links" aria-label={locale === "en" ? "Languages" : locale === "zh-hant" ? "語言" : "语言"}>
+          {languages.map(item => <a href={localHref(item.id, pagePath)} lang={item.id === "zh-hant" ? "zh-Hant" : item.id === "zh-hans" ? "zh-Hans" : "en"} aria-current={item.id === locale ? "page" : undefined}>{item.label}</a>)}
         </nav>
       </div>
     </header>
@@ -43,7 +62,7 @@ const pageDescription = description || site.tagline;
 
     <footer class="site-footer">
       <div class="container">
-        <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} {displayName}. All rights reserved.</p>
       </div>
     </footer>
 
@@ -57,7 +76,11 @@ const pageDescription = description || site.tagline;
         border-bottom: 1px solid var(--color-border);
       }
 
+      .locale-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; font-size: .875rem; }
+      .locale-links [aria-current] { color: #a6d0ff; text-decoration: underline; }
       .header-inner {
+        gap: .8rem;
+        flex-wrap: wrap;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -102,7 +125,11 @@ const pageDescription = description || site.tagline;
       }
 
       @media (max-width: 640px) {
-        .header-inner {
+        .locale-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; font-size: .875rem; }
+      .locale-links [aria-current] { color: #a6d0ff; text-decoration: underline; }
+      .header-inner {
+        gap: .8rem;
+        flex-wrap: wrap;
           flex-direction: column;
           gap: 12px;
         }

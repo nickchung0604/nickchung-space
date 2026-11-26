@@ -1,5 +1,5 @@
 export const site = {
-  name: "Nick Chung (CHUNG Wei Kai)",
+  name: "Nick Chung",
   title: "Supply Chain & Strategic Sourcing Leader",
   tagline:
     "I lead procurement, supplier development and cross-functional programs across manufacturing and technology.",
