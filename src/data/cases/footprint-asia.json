@@ -13,9 +13,8 @@
   "outcome": "The operation managed more than 20 suppliers and exported more than 300 million units during my tenure. Procurement savings averaged US$300,000 annually.",
   "evidence": [
     {
-      "image": "/evidence/footprint-workflow.svg",
+      "image": "/evidence/footprint-workflow-1.png",
       "caption": "Illustrative workflow reconstructed from the documented responsibilities."
-    },
-    {}
+    }
   ]
 }
