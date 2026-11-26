@@ -111,12 +111,12 @@ export const timeline = [
     tags: ["Project Management", "Automation", "Global Sourcing"],
   },
   {
-    period: "2004 — 2006",
-    role: "Political Warfare Officer (Psychology Counseling)",
-    company: "Army, Taiwan",
+    period: "2006.05 — 2006.09",
+    role: "Marketing Intern",
+    company: "STYX Infosoft (India)",
     description:
-      "Provided 24/7 psychological support for 2,000+ personnel. Led counseling team and conducted orientation training for new recruits.",
-    tags: ["Leadership", "Counseling", "Crisis Management"],
+      "Conducted market interviews and competitor research in Greater China to help the company evaluate opportunities and plan its market entry.",
+    tags: ["Market Research", "Competitor Analysis", "Market Entry"],
   },
 ];
 
