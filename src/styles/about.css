@@ -1,0 +1,208 @@
+
+  .intro-block {
+    max-width: 720px;
+  }
+
+  .intro-block p {
+    margin-bottom: 16px;
+    color: var(--color-text-secondary);
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background-color: var(--color-border);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 36px;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .timeline-marker {
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-accent);
+  }
+
+  .timeline-period {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .timeline-role {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0 2px;
+  }
+
+  .timeline-company {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-bottom: 10px;
+    max-width: 640px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .skill-group {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px;
+  }
+
+  .skill-category {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--color-text);
+  }
+
+  .skill-list {
+    list-style: none;
+  }
+
+  .skill-list li {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    padding: 5px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .skill-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .award-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .award-item {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+  }
+
+  .award-year {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    min-width: 80px;
+  }
+
+  .award-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .award-org {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+  }
+
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .edu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 18px 24px;
+  }
+
+  .edu-degree {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+  }
+
+  .edu-period {
+    font-size: 13px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .cert-list li {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    padding: 10px 16px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+  }
+
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+    .edu-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .award-item {
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+
+

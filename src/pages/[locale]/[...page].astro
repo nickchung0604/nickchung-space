@@ -6,7 +6,9 @@ import { venusEvidence, venusEvidenceIds } from "../../data/venus-evidence";
 import FeaturedEvidence from "../../components/FeaturedEvidence.astro";
 import { featuredDocumentRoutes, featuredEvidence, featuredLabels } from "../../data/featured-evidence";
 import { careerLinks } from "../../data/career-links";
-import { timeline } from "../../data/site";
+import { timeline, awards, education } from "../../data/site";
+import "../../styles/about.css";
+import { localizedCareer } from "../../data/localized-career";
 import Layout from "../../layouts/Layout.astro";
 import { work, featuredWork } from "../../data/work";
 import { capabilities, legacyCapabilities } from "../../data/work-details";
@@ -35,6 +37,15 @@ const copy = isTraditional ? {
   context:"业务背景", decisions:"我的职责和关键判断", outcome:"成果", visual:"关键做法图解",
   roles:["供应链与项目管理总监","全球采购经理","Venus 产品负责人","供应链经理","供应链经理","全球采购经理","高级采购经理","项目总监／顾问","创始人","采购总监","市场总监／独立顾问"],
 };
+const aboutAwards = (isTraditional
+  ? ["大中華區總裁團隊獎","即時表揚獎（開發金屬件成本分析課程）","MSI 包裝銅獎","Winning Together（SBA）","上海創業競賽第一名"]
+  : ["大中华区总裁团队奖","即时表彰奖（开发金属件成本分析课程）","MSI 包装铜奖","Winning Together（SBA）","上海创业比赛第一名"]);
+const aboutEducation = (isTraditional
+  ? [["MBA 在讀","上海交通大學｜高級金融"],["國際貿易與金融學士","臺灣輔仁大學"],["商業智慧課程證書（AI 與類神經網路）","臺灣輔仁大學"]]
+  : [["MBA 在读","上海交通大学｜高级金融"],["国际贸易与金融学士","台湾辅仁大学"],["商业智能课程证书（AI 与神经网络）","台湾辅仁大学"]]);
+const aboutCertifications = isTraditional
+  ? ["專案管理專業人士（PMP，2010 年核發）","供應管理專業認證（CPSM）","輔仁大學商業智慧課程證書"]
+  : ["项目管理专业人士（PMP，2010 年获证）","供应管理专业认证（CPSM）","辅仁大学商业智能课程证书"];
 const entries = isTraditional ? traditional : simplified;
 const route = (suffix = "") => "/" + locale + "/" + (suffix ? suffix + "/" : "");
 const areaPath = (id: string) => "experience/area/" + id;
@@ -56,7 +67,57 @@ const title = (featuredDoc ? featuredEvidence[featuredDoc.slug][featuredDoc.id][
       <div class="portfolio-actions"><a href={route("experience")}>{copy.work}</a><a href="/nick-chung-cv.html" download>{copy.cv}</a><a href={site.linkedin}>LinkedIn</a></div>
     </div><img src={site.profileImage} width="220" height="220" alt="Nick Chung" />
   </div></section>}
-  {doc ? <VenusEvidence locale={locale} document={doc} /> : featuredDoc ? <FeaturedEvidence slug={featuredDoc.slug} document={featuredDoc.id} locale={locale} /> : <div class="portfolio-light"><div class:list={["container", {"case-content": Boolean(current)}]}>
+    {page === "about" && <>
+    <section class="section"><div class="container">
+      <h1 class="page-title">{copy.about}</h1>
+      <p class="page-subtitle">{isTraditional ? "我的職涯橫跨策略採購、供應鏈營運與跨部門專案。" : "我的职业经历涵盖战略采购、供应链运营和跨部门项目。"}</p>
+      <div class="intro-block">
+        <p>{isTraditional ? "我在戴爾、台達、伊萊克斯及 SK 集團與麥肯錫的合作專案中，負責採購、供應商開發和供應鏈營運。管理過逾 2.2 億美元的年度採購金額，也在中國大陸、臺灣、泰國和韓國帶領或協調團隊。" : "我在戴尔、台达、伊莱克斯以及 SK 集团与麦肯锡的合作项目中，负责采购、供应商开发和供应链运营。管理过超过 2.2 亿美元的年度采购金额，也在中国大陆、台湾、泰国和韩国带领或协调团队。"}</p>
+        <p>{isTraditional ? "近年，我把這些經驗用到 AI 產品與專案：協調香港公共服務的 AI 合作，創辦混合實境產品公司，並負責 Venus 第一代具身 AI 硬體的產品定義。" : "近年，我把这些经验用到 AI 产品和项目中：协调香港公共服务的 AI 合作，创办混合现实产品公司，并负责 Venus 第一代具身 AI 硬件的产品定义。"}</p>
+        <p>{copy.intro}</p>
+      </div>
+    </div></section>
+    <section class="section"><div class="container">
+      <p class="section-title">{isTraditional ? "任職時間線" : "任职时间线"}</p>
+      <div class="timeline">
+        {timeline.map((item,index) => {
+          const [roleHant,roleHans,,,slugs] = careerLinks[index];
+          const [companyHant,companyHans,descHant,descHans] = localizedCareer[index];
+          return <div class="timeline-item">
+            <div class="timeline-marker"></div><div class="timeline-content">
+              <span class="timeline-period">{item.period}</span>
+              <h3 class="timeline-role">{isTraditional ? roleHant : roleHans}</h3>
+              <p class="timeline-company">{isTraditional ? companyHant : companyHans}</p>
+              <p class="timeline-desc">{isTraditional ? descHant : descHans}</p>
+              {slugs.length > 0 && <ul class="career-case-links">{slugs.map(slug => <li><a href={route(casePath(slug))}>{entries[slug][0]}</a></li>)}</ul>}
+            </div>
+          </div>;
+        })}
+      </div>
+    </div></section>
+    <section class="section"><div class="container">
+      <p class="section-title">{isTraditional ? "專業能力" : "专业能力"}</p>
+      <div class="skills-grid">
+        {(isTraditional ? traditionalSkills : simplifiedSkills).map((items,index) => <div>
+          <h3 class="skill-category">{copy.areas[index]}</h3>
+          <ul class="skill-list">{items.map(item => <li>{item}</li>)}</ul>
+        </div>)}
+      </div>
+    </div></section>
+    <section class="section"><div class="container">
+      <p class="section-title">{isTraditional ? "獎項與肯定" : "奖项与表彰"}</p>
+      <ul class="career-case-links">{awards.map((award,index) => <li>{award.year} · {award.org} · {aboutAwards[index]}</li>)}</ul>
+    </div></section>
+    <section class="section"><div class="container">
+      <p class="section-title">{isTraditional ? "學歷" : "教育背景"}</p>
+      <ul class="career-case-links">{education.map((item,index) => <li>{item.period.replace("Present","至今")} · {aboutEducation[index][1]} · {aboutEducation[index][0]}</li>)}</ul>
+    </div></section>
+    <section class="section"><div class="container">
+      <p class="section-title">{isTraditional ? "專業證照" : "专业证书"}</p>
+      <ul class="career-case-links">{aboutCertifications.map(item => <li>{item}</li>)}</ul>
+    </div></section>
+  </>}
+  {page === "about" ? null : doc ? <VenusEvidence locale={locale} document={doc} /> : featuredDoc ? <FeaturedEvidence slug={featuredDoc.slug} document={featuredDoc.id} locale={locale} /> : <div class="portfolio-light"><div class:list={["container", {"case-content": Boolean(current)}]}>
     {(area || current) && <a href={route("experience")}>{copy.back}</a>}
     {page && <h1>{title}</h1>}
     {page === "experience" && <>
@@ -94,14 +155,6 @@ const title = (featuredDoc ? featuredEvidence[featuredDoc.slug][featuredDoc.id][
       </section>}
       <nav class="work-jump">{capabilities.map((area,index) => area.slugs.includes(item.slug) && <a href={route(areaPath(area.id))}>{copy.areas[index]}</a>)}</nav>
     </>}
-    {page === "about" && <><p>{copy.intro}</p><section><h2>{isTraditional ? "任職時間線" : "任职时间线"}</h2><div class="career-entries">
-      {timeline.map((item,index) => {
-        const [roleHant,roleHans,descHant,descHans,slugs] = careerLinks[index];
-        return <article class="work-card"><p class="work-meta">{item.period} · {item.company}</p><h3>{isTraditional ? roleHant : roleHans}</h3><p>{isTraditional ? descHant : descHans}</p>
-          {slugs.length > 0 && <ul class="career-case-links">{slugs.map(slug => <li><a href={route(casePath(slug))}>{entries[slug][0]}</a></li>)}</ul>}
-        </article>;
-      })}
-    </div></section></>}
     {page === "contact" && <p><a href={`mailto:${site.email}`}>{site.email}</a> · <a href={site.linkedin}>LinkedIn</a></p>}
   </div></div>}
 </Layout>
