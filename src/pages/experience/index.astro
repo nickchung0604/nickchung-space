@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import WorkCard from "../../components/WorkCard.astro";
+import { work, workCopy } from "../../data/work";
+const chronological = [...work].sort((a, b) => b.year - a.year);
+---
+<Layout title={workCopy.title} description={workCopy.description}>
+  <div class="portfolio-light">
+    <div class="container">
+      <h1>{workCopy.title}</h1>
+      <p>{workCopy.description}</p>
+      <nav class="work-jump" aria-label="Browse selected work">
+        <a href="#capability">{workCopy.byCapability}</a>
+        <a href="#date">{workCopy.byDate}</a>
+      </nav>
+      <section id="capability">
+        <h2>{workCopy.byCapability}</h2>
+        <div class="work-grid">
+          {work.map(item => <div><p class="work-meta">{item.category}</p><WorkCard item={item} /></div>)}
+        </div>
+      </section>
+      <section id="date">
+        <h2>{workCopy.byDate}</h2>
+        <ul class="work-dates">
+          {chronological.map(item => <li><span>{item.period}</span><a href={`/experience/${item.slug}/`}>{item.company} · {item.title}</a></li>)}
+        </ul>
+      </section>
+    </div>
+  </div>
+</Layout>

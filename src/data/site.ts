@@ -1,15 +1,15 @@
 export const site = {
   name: "Nick Chung (CHUNG Wei Kai)",
-  title: "Supply Chain & Procurement Leader · AI Project Advisor",
+  title: "Supply Chain & Strategic Sourcing Leader",
   tagline:
-    "20 years across global supply chains — from $220M+ direct-material spend at Dell to advising Hong Kong's first government AI agent project. Now building an AI companion robot venture.",
+    "I lead procurement, supplier development and cross-functional programs across manufacturing and technology.",
   email: "nickchung0604@163.com",
   linkedin: "https://www.linkedin.com/in/nichung",
   github: "https://github.com/nickchung0604",
   location: "Shanghai · Hong Kong · Shenzhen",
   profileImage: "/profile.jpg",
   current: {
-    role: "Co-founder / Product Lead — Venus (AI Companion Robot)",
+    role: "Product Lead — Phantova Technology · Venus",
     desc: "Co-founding an AI companion robot venture, leading product definition, pricing, and go-to-market. Previously advised on Hong Kong's first government AI agent project and SE Asia market expansion — applying 20 years of supply chain and operations expertise to AI-driven products.",
   },
 };
@@ -17,7 +17,7 @@ export const site = {
 export const pageMeta = {
   about: {
     title: "About Me",
-    subtitle: "20 years in global supply chains. Now bringing that operational rigor to AI.",
+    subtitle: "A career across strategic sourcing, supply chain operations and cross-functional delivery.",
   },
   experience: {
     title: "Experience & Projects",
@@ -32,17 +32,17 @@ export const pageMeta = {
 export const highlights = [
   { value: "$220M+", label: "Annual Spend Managed" },
   { value: "20", label: "Years in Supply Chain" },
-  { value: "₩100B", label: "Annual Cost Reduction (SK)" },
+  { value: "₩10B", label: "Annual Cost Reduction (SK)" },
   { value: "300M+", label: "Units Exported (Footprint)" },
 ];
 
 export const timeline = [
   {
-    period: "2025.12 — Present",
-    role: "Co-founder / Product Lead",
-    company: "Venus (AI Companion Robot)",
+    period: "2025.12 — 2026.11",
+    role: "Product Lead",
+    company: "Phantova Technology · Venus",
     description:
-      "Co-founding an AI companion robot venture. Leading product definition, user research, pricing strategy, and go-to-market execution. Bridging AI capabilities with hardware product design.",
+      "Led first-generation product definition, user research and cross-functional requirements for embodied AI hardware.",
     tags: ["AI Product", "Hardware", "Go-to-Market"],
   },
   {
@@ -66,7 +66,7 @@ export const timeline = [
     role: "Senior Sourcing Manager (with McKinsey)",
     company: "SK Group × McKinsey & Company (Seoul)",
     description:
-      "Seconded to SK Group alongside McKinsey to drive strategic sourcing transformation. Managed $10–40M annual spend per category across PCBA, compressors, BLDC motors, die-casting, and more. Achieved 20% annual cost reduction totaling ₩100B KRW. Conducted on-site supplier validation and financial audits. Designed negotiation strategies with non-price levers (payment terms, capacity guarantees).",
+      "Seconded to SK Group alongside McKinsey to drive strategic sourcing transformation. Managed $10–40M annual spend per category across PCBA, compressors, BLDC motors, die-casting, and more. Achieved 20% annual cost reduction totaling ₩10B KRW. Conducted on-site supplier validation and financial audits. Designed negotiation strategies with non-price levers (payment terms, capacity guarantees).",
     tags: ["Strategic Sourcing", "Negotiation", "Supplier Audit", "Consulting"],
   },
   {
@@ -183,12 +183,12 @@ export const projects = [
     tags: ["Market Entry", "B2B Sales", "Brand Strategy"],
   },
   {
-    title: "₩100B Annual Cost Reduction",
+    title: "₩10B Annual Cost Reduction",
     period: "2019 · SK Group × McKinsey",
     summary:
       "Seconded to SK Group alongside McKinsey to transform strategic sourcing across PCBA, compressors, BLDC motors, die-casting, and mechanical parts.",
     highlights: [
-      "Achieved 20% annual cost reduction totaling ₩100B KRW",
+      "Achieved 20% annual cost reduction totaling ₩10B KRW",
       "Managed $10–40M annual spend per category with 20–30% savings targets",
       "Conducted on-site supplier validation and financial audits per SK Magic criteria",
       "Designed negotiation strategies using non-price levers beyond volume consolidation",
@@ -281,6 +281,6 @@ export const awards = [
 
 export const nav = [
   { label: "About", href: "/about" },
-  { label: "Experience", href: "/experience" },
+  { label: "Selected Work", href: "/experience/" },
   { label: "Contact", href: "/contact" },
 ];

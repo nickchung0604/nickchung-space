@@ -1,0 +1,164 @@
+media:
+  input: public/evidence
+  output: /evidence
+  categories: [image]
+content:
+  - name: footprint-asia
+    label: Footprint Asia
+    type: file
+    path: src/data/cases/footprint-asia.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true
+  - name: dell-cost-reduction
+    label: Dell Technologies
+    type: file
+    path: src/data/cases/dell-cost-reduction.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true
+  - name: venus-product-definition
+    label: Phantova Technology
+    type: file
+    path: src/data/cases/venus-product-definition.json
+    format: json
+    fields:
+      - name: slug
+        type: string
+        readonly: true
+      - name: company
+        type: string
+        required: true
+      - name: period
+        type: string
+        required: true
+      - name: year
+        type: number
+        required: true
+      - name: category
+        type: string
+        required: true
+      - name: role
+        type: string
+        required: true
+      - name: title
+        type: string
+        required: true
+      - name: result
+        type: string
+        required: true
+      - name: summary
+        type: text
+        required: true
+      - name: context
+        type: text
+        required: true
+      - name: decisions
+        type: text
+        required: true
+      - name: outcome
+        type: text
+        required: true
+      - name: evidence
+        label: Work sample images
+        type: object
+        list: true
+        fields:
+          - name: image
+            type: image
+            required: true
+          - name: caption
+            type: string
+            required: true

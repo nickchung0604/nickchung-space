@@ -1,0 +1,42 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { work, workCopy } from "../../data/work";
+export function getStaticPaths() {
+  return work.map(item => ({ params: { slug: item.slug }, props: { item } }));
+}
+const { item } = Astro.props;
+---
+<Layout title={item.title} description={item.summary}>
+  <article class="portfolio-light">
+    <div class="container case-content">
+      <a href="/experience/">{workCopy.back}</a>
+      <p class="work-meta">{item.company} · {item.period} · {item.category}</p>
+      <h1>{item.title}</h1>
+      <p class="case-result">{item.result}</p>
+      <p><strong>{item.role}</strong></p>
+      <p>{item.summary}</p>
+      <section><h2>{workCopy.context}</h2><p>{item.context}</p></section>
+      <section><h2>{workCopy.decisions}</h2><p>{item.decisions}</p></section>
+      <section><h2>{workCopy.outcome}</h2><p>{item.outcome}</p></section>
+      {item.evidence.length > 0 && <section>
+        <h2>{workCopy.evidence}</h2>
+        {item.evidence.map(sample => <figure>
+          <button type="button" class="sample-open" aria-label={`Enlarge image: ${sample.caption}`}>
+            <img src={sample.image} alt={sample.caption} loading="lazy" />
+          </button>
+          <figcaption>{sample.caption}</figcaption>
+          <dialog class="sample-dialog">
+            <form method="dialog"><button autofocus>Close image</button></form>
+            <img src={sample.image} alt={sample.caption} loading="lazy" />
+          </dialog>
+        </figure>)}
+      </section>}
+    </div>
+  </article>
+</Layout>
+<script>
+  for (const button of document.querySelectorAll<HTMLButtonElement>(".sample-open")) {
+    const dialog = button.parentElement?.querySelector("dialog");
+    button.addEventListener("click", () => dialog?.showModal());
+  }
+</script>

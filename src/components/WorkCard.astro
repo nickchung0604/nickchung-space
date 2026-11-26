@@ -1,0 +1,10 @@
+---
+import type { work } from "../data/work";
+const { item } = Astro.props as { item: (typeof work)[number] };
+---
+<article class="work-card">
+  <p class="work-meta">{item.company} · {item.period}</p>
+  <h3><a href={`/experience/${item.slug}/`}>{item.title}</a></h3>
+  <strong>{item.result}</strong>
+  <p>{item.summary}</p>
+</article>

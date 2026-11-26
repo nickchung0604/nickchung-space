@@ -1,0 +1,15 @@
+{
+  "slug": "venus-product-definition",
+  "company": "Phantova Technology",
+  "period": "Dec 2025 – Nov 2026",
+  "year": 2026,
+  "category": "Product & Program Delivery",
+  "role": "Venus Product Lead",
+  "title": "Defining a first-generation embodied AI product",
+  "result": "First-generation product scope defined",
+  "summary": "Turned user research and channel observations into product priorities, interaction scenarios and acceptance criteria.",
+  "context": "The team needed to turn a broad consumer hardware concept into a defined first-generation product for further development.",
+  "decisions": "I combined user interviews, co-creation surveys and channel research in Japan. I translated interaction needs into separate requirements for local motion, voice and cloud conversation, including criteria for latency, synchronization and noise.",
+  "outcome": "The work delivered a first-generation proposal with target segments, priority scenarios and scope, alongside device-update requirements and after-sales cost estimates.",
+  "evidence": []
+}
