@@ -1,6 +1,6 @@
 export const simplified: Record<string, [string,string,string,string,string,string,string[]]> = {
   "footprint-asia": [
-    "统筹供应商、项目与质量",
+    "交付稳定｜整合采购、项目与质量",
     "年均节省采购成本 30 万美元",
     "我为团队建立一项跟踪规则：保留客户原始承诺，由项目管理另记工厂实际发货日期和数量。出现偏差时，团队沿成型、风干和热压记录回查缺口。这支 8 人团队涵盖采购、项目管理和质量，负责 20 多家供应商。",
     "三个职能需要共同掌握供应商表现、项目进度和质量问题。",
@@ -13,7 +13,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "dell-cost-reduction": [
-    "通过价值工程降低桌面电脑零部件成本",
+    "直接物料降本｜台式电脑零部件价值工程",
     "2016 年成本降低 4.99%",
     "面向 20 多个桌面电脑平台，结合供应商策略、成本分析和价值工程开展降本。",
     "机械件和电子元件涉及多家供应商，谈判条款和零部件设计都有改善空间。",
@@ -26,7 +26,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "venus-product-definition": [
-    "定义 Venus 高拟真陪伴机器人",
+    "产品范围验证｜Venus 高拟真陪伴机器人",
     "明确产品范围与验收要求",
     "把用户访谈、共创调研和日本渠道调研转化为产品优先级。",
     "团队需要把消费硬件概念转化为能进入下一步开发的产品定义。",
@@ -39,7 +39,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "delta-supplier-strategy": [
-    "把供应商评估转化为订单份额建议",
+    "供应商策略｜用 TQRDC 评估决定订单分配",
     "为三个品类提出订单分配建议",
     "针对线缆、印刷线路板和钣金，结合 TQRDC、SWOT 与行业分析比较供应商。",
     "团队需要判断哪些供应商的订单份额应维持，哪些可以调整。",
@@ -52,7 +52,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "delta-carton-cost-analysis": [
-    "用材料成本模型复核纸箱报价",
+    "成本精算｜纸箱报价复核",
     "建立可重复使用的调价复核方法",
     "用 Excel 计算可比成本，并对照相近尺寸的料号判断调价是否合理。",
     "直接对比单价容易忽略纸箱规格、用料和纸价的变化。",
@@ -65,9 +65,9 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "dell-supplier-billing-accuracy": [
-    "供应商账单准确性专项（SBA）",
+    "降本｜物流费用精算与多付款追回（SBA）",
     "追回供应商多付款 400 万美元",
-    "处理与一家主要制造合作伙伴之间的账单差异。",
+    "我通过 SBA 精算物流费用，找出降本机会，并参与追回一家主要制造合作伙伴的多付款。",
     "采购财务控制需要识别已经支付的多付款项，并明确可追回的金额。",
     "我参与处理供应商账单差异并推动追回相应款项。",
     "SBA 追回 400 万美元，并获戴尔 Winning Together 专项表彰。大中华区总裁奖是另一项团队奖。",
@@ -77,7 +77,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "sk-supplier-qualification": [
-    "跨品类评估替代供应商",
+    "降低供应风险｜替代供应商资格审核",
     "为后续资格审核筛选候选供应商",
     "使用预审工作簿评估电机、加热器和印刷电路板组件等品类的替代供应商。",
     "候选供应商除了报价合适，也要具备生产、质量和配合新产品开发的能力。",
@@ -90,7 +90,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "bcci-ai-partnership": [
-    "统筹 AI 合作与技术工作",
+    "公共服务 AI 项目准备｜合作协调与技术需求",
     "形成战略合作备忘录与项目需求",
     "协调香港一项面向公共服务的 AI 项目中的合作伙伴、技术需求和供应商。",
     "项目涉及公共服务需求、外部技术合作伙伴，以及硬件、云和软件三个采购方向。",
@@ -104,7 +104,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "intelove-product-development": [
-    "开发互动混合现实产品",
+    "混合现实产品开发｜整合实体设备与数字内容",
     "混合现实产品概念获专利保护",
     "组建跨职能团队，开发结合实体设备与沉浸式数字内容的产品。",
     "产品体验由设备互动和数字内容共同组成，因此硬件和内容需要一起规划。",
@@ -117,7 +117,7 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ],
   "zebra-procurement-team": [
-    "搭建采购团队和供应商管理体系",
+    "采购与供应链流程建立｜供应商分级与质量管控",
     "管理 8 人团队，建立两级供应商体系",
     "负责交通与旅游服务采购，并建立质量控制和索赔跟踪流程。",
     "租车与导游服务需要有稳定的供应商覆盖、正式采购协议和处理质量索赔的办法。",
@@ -130,4 +130,4 @@ export const simplified: Record<string, [string,string,string,string,string,stri
     ]
   ]
 };
-simplified["ses-malaysia-delivery"] = ["推进马来西亚订单、样机与市场活动","20 套订单尾款已付，待财务确认","协调马来西亚订单跟进、展示样机、营销资料和区域团队交接。","订单需要确认款项并安排安装出货；演示另需准备可用样机、技术资料及对接人员。","据 7 月 2 日记录，我和技术同事负责更新营销数据。当地团队更新马来西亚进度，SES 支持营销资料；样机、白皮书与安装出货分开跟进。","7 月 2 日记录 20 套尾款已付，待财务确认。安装与出货当时仍在安排；简历另记载马来西亚峰会活动。",["商务｜20 套尾款待财务确认","交付｜安排安装与发货","展示｜准备样机、白皮书和营销资料"]];
+simplified["ses-malaysia-delivery"] = ["马来西亚市场拓展｜订单跟进与产品展示","20 套订单尾款已付，待财务确认","协调马来西亚订单跟进、展示样机、营销资料和区域团队交接。","订单需要确认款项并安排安装出货；演示另需准备可用样机、技术资料及对接人员。","据 7 月 2 日记录，我和技术同事负责更新营销数据。当地团队更新马来西亚进度，SES 支持营销资料；样机、白皮书与安装出货分开跟进。","7 月 2 日记录 20 套尾款已付，待财务确认。安装与出货当时仍在安排；简历另记载马来西亚峰会活动。",["商务｜20 套尾款待财务确认","交付｜安排安装与发货","展示｜准备样机、白皮书和营销资料"]];

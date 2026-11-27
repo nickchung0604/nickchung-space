@@ -5,7 +5,7 @@
   "year": 2012,
   "category": "Strategic Sourcing",
   "role": "Supply Chain Manager",
-  "title": "Checking carton quotations with a material cost model",
+  "title": "Cost Modeling — Carton Quote Review",
   "result": "A repeatable check for supplier price changes",
   "summary": "Used an Excel cost model and comparisons across similarly sized carton items to evaluate whether a quoted adjustment was reasonable.",
   "context": "A price adjustment needs to be assessed against the carton specification and material inputs. Comparing unit quotations alone can miss differences between items.",
