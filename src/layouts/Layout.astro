@@ -124,18 +124,12 @@ const pageDescription = description || site.tagline;
         text-align: center;
       }
 
-      @media (max-width: 640px) {
-        .locale-links { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; font-size: .875rem; }
-      .locale-links [aria-current] { color: #a6d0ff; text-decoration: underline; }
-      .header-inner {
-        gap: .8rem;
-        flex-wrap: wrap;
-          flex-direction: column;
-          gap: 12px;
-        }
-        .nav {
-          gap: 20px;
-        }
+      @media (max-width: 720px) {
+        .site-header { position: static; }
+        .header-inner { justify-content: center; gap: 0 .85rem; padding: .45rem .75rem; }
+        .nav { flex-wrap: wrap; justify-content: center; gap: 0 .65rem; }
+        .locale-links { flex: 1 0 100%; gap: 0 .85rem; }
+        .nav a, .locale-links a { display: inline-flex; align-items: center; min-height: 44px; }
       }
     </style>
   </body>

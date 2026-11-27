@@ -167,3 +167,30 @@ img {
 .career-entries { display: grid; gap: 1rem; }
 .career-case-links { margin: .5rem 0; padding-left: 1.25rem; }
 .timeline-content .career-case-links a { color: #a6d0ff; text-decoration: underline; }
+@media (max-width: 720px) {
+  .portfolio-hero { padding: 1.5rem 0 1.75rem; }
+  .portfolio-hero-inner { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+  .portfolio-hero h1 { font-size: clamp(1.9rem, 7vw, 2.6rem); }
+  .portfolio-hero .portfolio-title { font-size: 1.13rem; line-height: 1.4; }
+  .portfolio-hero img {
+    grid-row: 1;
+    width: auto;
+    height: 5.5rem;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  .portfolio-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin-top: 1rem; }
+  .portfolio-actions a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: .45rem .35rem;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .portfolio-actions a:first-child { grid-column: 1 / -1; }
+  .work-grid, .area-cases, .capability-grid { grid-template-columns: minmax(0, 1fr); }
+  .portfolio-light, .timeline-content, .contact-value { overflow-wrap: anywhere; }
+}
+.case-visual-scroll { max-width: 100%; }
